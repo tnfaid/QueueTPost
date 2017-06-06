@@ -1,0 +1,5 @@
+db=db.getSiblingDB('mbedq') 
+ db.userList.drop() 
+  db.userList.insert({"_id":"5666a3ba96735df808adc600","userName":"admin","userPass":"admin","userLevel":"2","roleLevel":"2","FullName":"รุ่งธรรม ปานจันทร์","expiryDate":"12/31/2015","isEnable":true,"branch":{"branchID":"100001","branchName":"สาขาสำนักงานใหญ่"},"zoneID":"1","regionID":"1"}) 
+ db.userList.insert({"_id":"566941f21f6af80a697bed6b","userName":"user01","userPass":"user","userLevel":"1","roleLevel":"1","FullName":"รุ่งธรรม จันทร์งาม","expiryDate":"12/31/2015","isEnable":true,"branch":{"branchID":"100001","branchName":"สาขาสำนักงานใหญ่"},"zoneID":"1","regionID":"1"}) 
+ db.userList.insert({"_id":"566ee3ca1f6af80a697bed70","userName":"PP999999","userPass":"test@1234","userLevel":"2","roleLevel":"1","FullName":"รุ่งธรรม ปานจันทร์","expiryDate":"12/31/2015","isEnable":true,"branch":{"branchID":"100001","branchName":"สาขาสำนักงานใหญ่"},"zoneID":"1","regionID":"1"}) 

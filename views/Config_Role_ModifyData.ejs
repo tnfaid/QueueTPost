@@ -1,0 +1,248 @@
+﻿<% 
+if (!Array.prototype.find) {
+  Array.prototype.find = function(predicate) {
+    if (this === null) {
+      throw new TypeError('Array.prototype.find called on null or undefined');
+    }
+    if (typeof predicate !== 'function') {
+      throw new TypeError('predicate must be a function');
+    }
+    var list = Object(this);
+    var length = list.length >>> 0;
+    var thisArg = arguments[1];
+    var value;
+
+    for (var i = 0; i < length; i++) {
+      value = list[i];
+      if (predicate.call(thisArg, value, i, list)) {
+        return value;
+      }
+    }
+    return undefined;
+  };
+}
+
+
+%>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= action %> Range Queue</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="Stylesheet" href="/stylesheets/bootstrap.min.css" />
+    <link rel="Stylesheet" href="/stylesheets/template.css" />
+    <link rel="Stylesheet" href="/stylesheets/menustyles.css" />
+    <link href="/stylesheets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+    <script type="text/javascript" src="/javascripts/lib/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="/javascripts/lib/bootstrap.min.js"></script>
+    <script src='/views/config_role_modifydata.js' type="text/javascript"></script>
+    <script type="text/javascript">
+      var frm = new configrole_view();
+      frm.fn_inital();
+    </script>
+    <script>
+      $('label').click(function() {
+        $(this).parent('li').toggleClass('active');
+      });
+    </script>
+
+    <style>
+      body{
+        background-color: #1a1a1a;
+      }
+
+      .tree {
+        margin: auto;
+        padding: 50px;
+        background: #1a1a1a;
+      }
+
+      input[type="checkbox"] { display: none; }
+
+      input[type="checkbox"] + label {
+        display: block;
+        position: relative;
+        padding-left: 35px;
+        margin-bottom: 20px;
+        font: 14px/20px 'Open Sans', Arial, sans-serif;
+        color: white;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+      }
+
+      input[type="checkbox"] + label:last-child { margin-bottom: 0; }
+
+      input[type="checkbox"] + label:before {
+        content: '';
+        display: block;
+        width: 20px;
+        height: 20px;
+        border: 1px solid cyan;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: .6;
+        -webkit-transition: all .12s, border-color .08s;
+        transition: all .12s, border-color .08s;
+      }
+
+      input[type="checkbox"]:checked + label:before {
+        width: 10px;
+        top: -5px;
+        left: 5px;
+        border-radius: 0;
+        opacity: 1;
+        border-top-color: transparent;
+        border-left-color: transparent;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+
+      .custom-btn {
+        padding: 10px;
+        font-family: 'Roboto', sans-serif;
+        width: 120px;
+        font-weight: 20;
+        font-size: 20px;
+        color: white;
+        margin-right: 150px;
+        background: transparent;
+        outline: none !important;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        display: inline-block;
+      }
+
+      .btn-2 {
+        border: none;
+        border-bottom: 2px solid cyan;
+        border-left: 2px solid cyan;
+      }
+      .btn-2:before, .btn-2:after {
+        position: absolute;
+        content: "";
+        right: 0;
+        top: 0;
+        background: cyan;
+        transition: all 0.3s ease;
+      }
+      .btn-2:before {
+        height: 0%;
+        width: 2px;
+      }
+      .btn-2:after {
+        width: 0%;
+        height: 2px;
+      }
+      .btn-2:hover:before {height: 100%;}
+      .btn-2:hover:after {width: 100%;}
+
+      .myBox{
+        font-size: 1em;
+        border: 2.5px solid #1B8EB9;
+        padding: 6px;
+        color: cyan;
+        font-weight: 300;
+        box-sizing: border-box;
+        text-indent: 6px;
+        -webkit-box-shadow: inset 1px 0px 0px -1px #404040;
+        box-shadow: inset 1px 0px 0px -1px #404040;
+        transition: box-shadow 0.2s, border 0.2s, color 0.2s, background 0.2s;
+        width: 250px;
+         background: linear-gradient(
+           #1a1a1a, #1a1a1a 50%, #333 50%, #333
+        );
+        background-size: 100% 202%;
+      }
+
+      .myBox:focus{
+        color:white;
+        background-position: 100% 100%;
+      }
+   </style>
+  </head>
+
+
+  <body>
+    <% include menu.ejs %>
+    <% 
+    var findMenu = function(Name){
+      if (action==='Add') return undefined;
+    return data.menu.find(function(x){return x.menuName === Name}); 
+  }
+    %>
+    <div class="container">
+      <div class="row" style="padding-top:30px">
+        <h3 style="color: white;"><%= action %> Role</h3>
+      </div>
+      <div class="row" style="padding-top:10px">
+        <div class="col-md-12">
+        <form class="form-horizontal">
+          <input type="hidden" id="itemid" value="<%= (action === 'Edit' ? data._id : '') %>" />
+          <div class="form-group">
+            <label class="control-label col-sm-2" style="color: white;" for="rolename"> Role Name :</label>
+            <div class=" col-sm-3">
+            <input class="myBox" type="text" name="rolename" id="rolename" value="<%= (action === 'Edit' ? data.roleName : '') %>"/> 
+            </div>         
+          </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2"  style="color: white; for="discription"> Discription :</label>
+            <div class=" col-sm-3">
+            <input class="myBox" type="text" name="discription" id="discription" value="<%= (action === 'Edit' ? data.Discription : '') %>"> 
+            </div>         
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="allmenu" style="color: white;">Menu :</label>
+            <div  id="tree">
+            <div class="col-sm-5 tree">
+              <ul>
+                <li><input id="ch_1" type="checkbox" value="Setting" <% if(findMenu('Setting') !== undefined){ %>checked<% } %> /><label for="ch_1">Setting</label>
+                  <ul>
+                    <li><span><input id="ch_2" type="checkbox" value="Setting Media" <% if(findMenu('Setting Media') !== undefined){ %>checked<% } %> /><label for="ch_2">Setting Media</label></span>
+                    </li>
+                    <li><span><input id="ch_8" type="checkbox" value="Setting Playlist" <% if(findMenu('Setting Playlist') !== undefined){ %>checked<% } %>/><label for="ch_8">Setting Playlist</label></span></li>
+                    <li><span><input id="ch_33" type="checkbox" value="User Management" <% if(findMenu('Modify Role') !== undefined){ %>checked<% } %> /><label for="ch_33">Modify Role</label></span></li>
+                    <li><span><i class="icon-folder-open"></i><input type="checkbox" id="ch_34" value="User Management" <% if(findMenu('User Management') !== undefined){ %>checked<% } %> /><label for="ch_34">User Management</label></span></li>
+                    <li><span><i class="icon-folder-open"></i><input type="checkbox" id="ch_35" value="Branch" <% if(findMenu('Branch') !== undefined){ %>checked<% } %> /><label for="ch_35">Branch</label></span></li>
+                  </ul>
+                </li>
+              </div>
+
+                <div class="col-sm-5 tree">
+                <ul>
+                  <li><input id="ch_20" type="checkbox" value="Report" <% if(findMenu('Report') !== undefined){ %> checked<% } %> /><label for="ch_20">Report</label>
+                    <ul>
+                      <li><span><input type="checkbox" id="ch_21" value="รายงานแสดงรายควอเตอร์" <% if(findMenu('รายงานแสดงรายควอเตอร์') !== undefined){ %>checked<% } %> /><label for="ch_21">รายงานแสดงรายควอเตอร์</label></span>
+                      </li>
+                      <li><span><input type="checkbox" id="ch_22" value="รายงานแสดงรายปี" <% if(findMenu('รายงานแสดงรายปี') !== undefined){ %>checked<% } %> /><label for="ch_22">รายงานแสดงรายปี</label></span></li>
+                      <li><span><input type="checkbox" id="ch_23" value="รายงานแสดงรายเดือน" <% if(findMenu('รายงานแสดงรายเดือน') !== undefined){ %>checked<% } %> /><label for="ch_23">รายงานแสดงรายเดือน</label></span></li>
+                      <li><span><input type="checkbox" id="ch_24" value="รายงานแสดงรายวัน" <% if(findMenu('รายงานแสดงรายวัน') !== undefined){ %>checked<% } %> /><label for="ch_24">รายงานแสดงรายวัน</label></span></li>
+                    </ul>
+                  </li>
+                </ul>
+
+                  <ul>
+                    <li><span><input type="checkbox" id="ch_15" value="Dashboard" <% if(findMenu('Dashboard') !== undefined){ %>checked<% } %> /><label for="ch_15">Dashboard</label></span>
+                    </li>
+                  </ul>
+                </div>  
+              </ul> 
+          </div>
+          </div>
+        </form>
+        </div>
+      </div>
+
+      <div class="row" style="padding-top:10px">
+        <div class="col-md-6 col-md-offset-4">
+        <button type="submit" id="btn<%= action%>Role" class="custom-btn btn-2" value="<%= action %>Role">Role</button>
+        <button type="submit" id="btnCancle" value="Cancel" class="custom-btn btn-2">Cancel</button>  
+        </div>
+    </div>
+    </div> 
+  </body>
+</html>

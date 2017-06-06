@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="Stylesheet" href="/stylesheets/bootstrap.min.css" />
+    <link rel="Shortcut Icon" href="/images/content/Icon.ico" />
+    <link rel="Stylesheet" href="/stylesheets/theme.css" />
+    <link rel="Stylesheet" href="/stylesheets/menustyles.css" />
+    <link href="/stylesheets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	
+    <script type="text/javascript" src="/javascripts/lib/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="/javascripts/lib/bootstrap.min.js"></script>
+    
+    <script type="text/javascript">
+            function check_data(){
+                    $('#lbAlert').html(""); 
+                    if (($('#txtUser').val() == "") || ($('#txtPWD').val() == "")){
+                            $('#lbAlert').html("Please enter your username and password."); 
+                            return false;
+                    }
+                    return true;
+            }
+    </script> 
+    <style type="text/css">
+    	
+	.stylish-input-group .input-group-addon{
+    		background: white !important;
+	}
+	.stylish-input-group .form-control{
+		border-right:0; 
+		box-shadow:0 0 0; 
+		border-color:#ccc;
+	}
+	.stylish-input-group button{
+    		border:0;
+    		background:transparent;
+	}
+
+	.inputLogin
+        {
+            width: 100%;
+            padding: 5px 5px 5px 5px;
+            margin: 0 0 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            border: solid #999 1px;
+        }
+        .buttonLogin
+        {
+            width: 100%;
+            padding: 6px 5px 6px 5px;
+        }
+        .footer
+        {
+            height: 40px;
+            width: 100%;
+            position: absolute;
+            padding: 10px 10px 10px 10px;
+            left: 0;
+            bottom: 0;
+            background-color: #28364f;
+            color: #FFFFFF;
+            text-align: right;
+        }
+
+	/* centering styles for jsbin */
+	html, body
+	{
+		width: 100%;
+		height: 100%;
+	}
+	html
+	{
+		display: table;
+	}
+	.row-centered
+	{
+		text-align: center;
+	}
+	.col-centered
+	{
+		display: inline-block;
+		float: none; /* reset the text-align */
+		text-align: left; /* inline-block space fix */
+		margin-right: -4px;
+	}
+	.col-fixed
+	{
+		/* custom width */
+		width: 320px;
+	}
+	.col-min
+	{
+		/* custom min width */
+		min-width: 320px;
+	}
+	.col-max
+	{
+		/* custom max width */
+		max-width: 320px;
+	}
+
+
+	/* visual styles */
+	body.login
+	{
+		display: table-cell;
+		vertical-align: middle;
+		padding-bottom: 40px;
+		background: #50a3a2;
+		background: -webkit-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
+		background: -moz-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
+		background: -o-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
+		background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);
+	}
+	h1.login
+	{
+		margin: 20px 0px 20px 0px;
+		font-size: 30px;
+		line-height: 34px;
+		text-align: center;
+		color: White;
+	}
+
+    </style>
+    <link rel="Stylesheet" href="/stylesheets/col-centered.css" />
+</head>
+<body class="login">
+    <div class="container">
+        <div class="row row-centered">
+            <form id="frmlogin" method="post" action="/login">
+            <div class="col-md-4 col-centered">
+                <h1 class="login">Login</h1>
+                <input type="textbox" name="txtUser" ID="txtUser" class="inputLogin" placeholder="Username"></input>
+                <input type="password" name="txtPWD" ID="txtPWD" class="inputLogin" placeholder="Password"></input>
+                <div align="center">
+                    <span name="lbAlert" ID="lbAlert" class="text-danger"><%= err %><span></div>
+                <input type="submit" name="btnLogin" ID="btnLogin" class="btn buttonLogin" Style="margin-top: 10px;" value="Login" onclick="return check_data();" />
+            </div>
+            </form>
+        </div>
+    </div>
+    <div class="footer loginfooter">
+        <div class="contriner">
+            Queue Management Powered by <a href="http://www.ppetech.com">
+                <img src="/images/content/icon.png" height="20px" width="20px" style="margin-left: 5px;" /></a>
+        </div>
+    </div>
+
+    </body>
+</html>

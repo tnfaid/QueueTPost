@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Branch View</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css" />
+    <link rel="Shortcut Icon" href="/images/content/Icon.ico" />
+    <link rel="stylesheet" href="/stylesheets/theme.css" />
+    <link rel="stylesheet" href="/stylesheets/menustyles.css" />
+    <link href="/stylesheets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="/javascripts/lib/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="/javascripts/lib/bootstrap.min.js"></script>
+    <script src="/javascripts/jquery.dataTables.min.js"></script>
+    <script src="/views/branch_view.js"></script>
+    <style type="text/css">
+        .toolbar {
+        float: right;
+    }
+    </style>
+  </head>
+  <body>
+  	<% include menu.ejs %>
+  <div class='container'>
+    <div class='row space-top' style="padding-top:50px">
+      <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xs-offset-0 col-sm-offset-0 col-md-offset-2 col-lg-offset-2 toppad">
+        <div class="panel panel-info">
+                <div class="panel-heading">
+                <h3 class="panel-title">ข้อมูลสาขา</h3>
+                </div>
+                <div class="panel-body">
+                  <div class="form-group row">
+                <label for="branchid" class="col-sm-2 col-form-label text-right">รหัสสาขา</label>
+                <div class="col-sm-4">
+                  <span class="form-control" id="branchid"><%= data.branchID %></span>
+                </div>
+                <label for="branchname" class="col-sm-2 col-form-label text-right">ชื่อสาขา</label>
+                <div class="col-sm-4">
+                  <span class="form-control" id="branchname"><%= data.branchName %></span>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="contactno" class="col-sm-2 col-form-label text-right">เลขที่สัญญา</label>
+                <div class="col-sm-4">
+                  <span class="form-control" id="contactno"></span>
+                </div>
+                <label for="branchtype" class="col-sm-2 col-form-label text-right">ประเภท</label>
+                <div class="col-sm-4">
+                  <span class="form-control" id="branchtype"></span>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="branchtel" class="col-sm-2 col-form-label text-right">เบอร์โทรสาขา</label>
+                <div class="col-sm-4">
+                  <span class="form-control" id="branchtel"></span>
+                </div>
+                <label for="branchemail" class="col-sm-2 col-form-label text-right">อีเมลสาขา</label>
+                <div class="col-sm-4">
+                  <span class="form-control" id="branchemail"></span>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="status" class="col-sm-2 col-form-label text-right">สถานะ</label>
+                <div class="col-sm-4">
+                  <span class="form-control" id="status"></span>
+                </div>
+                <label for="fee" class="col-sm-2 col-form-label text-right">Royalty fee</label>
+                <div class="col-sm-3">
+                  <span class="form-control" id="fee"></span>
+                </div>
+                <label for="fee" class="col-sm-1 col-form-label" style="padding:7px">%</label>
+              </div>
+
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">ที่ตั้ง</h3>
+                    </div>
+                    <div class="panel-body">
+                      <div class="form-group row">
+                    <label for="addrhourseno" class="col-sm-1 col-form-label text-right nopadding">เลขที่</label>
+                    <div class="col-sm-3">
+                      <span class="form-control" id="addrhourseno"></span>
+                    </div>
+                    <label for="addrbuilding" class="col-sm-2 col-form-label text-right">หมู่บ้าน/อาคาร</label>
+                    <div class="col-sm-3">
+                      <span class="form-control" id="addrbuilding"></span>
+                    </div>
+                    <label for="addrvillageno" class="col-sm-1 col-form-label text-right">หมู่ที่</label>
+                    <div class="col-sm-2">
+                      <span class="form-control" id="addrvillageno"></span>
+                    </div>
+                  </div>
+
+
+                  <div class="form-group row">
+                    <label for="addrroad" class="col-sm-1 col-form-label text-right nopadding">ถนน</label>
+                    <div class="col-sm-3">
+                      <span class="form-control" id="addrroad"></span>
+                    </div>
+                    <label for="addralley" class="col-sm-1 col-form-label text-right">ซอย</label>
+                    <div class="col-sm-2 nopadding">
+                      <span class="form-control" id="addralley"></span>
+                    </div>
+                    <label for="addrprovince" class="col-sm-1 col-form-label text-right nopadding">จังหวัด</label>
+                    <div class="col-sm-4">
+                      <span class="form-control" id="addrprovince"></span>
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    
+                    <label for="addrdistrict" class="col-sm-2 col-form-label text-right">อำเภอ/เขต</label>
+                    <div class="col-sm-4 nopadding">
+                      <span class="form-control" id="addrdistrict"></span>
+                    </div>
+                    <label for="addrsubdistrict" class="col-sm-2 col-form-label text-right nopadding">ตำบล/แขวง</label>
+                    <div class="col-sm-4">
+                      <span class="form-control" id="addrsubdistrict"></span>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="addrpostcode" class="col-sm-2 col-form-label text-right">รหัสไปรษณีย์</label>
+                    <div class="col-sm-2">
+                      <span class="form-control" id="addrpostcode"></span>
+                    </div>
+                  </div>
+                    </div>
+                  </div>
+              
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">ที่อยู่สำหรับจัดส่งไปรษณีย์ <div class="pull-right"><input type="checkbox" id="postisaddr" disabled readonly>เหมือนกับที่ตั้ง</div></h3>
+                    </div>
+                    <div id="postbody" class="panel-body collapse">
+                      <div class="form-group row">
+                    <label for="posthouseno" class="col-sm-1 col-form-label text-right nopadding">เลขที่</label>
+                    <div class="col-sm-3">
+                      <span class="form-control" id="posthouseno"></span>
+                    </div>
+                    <label for="postbuilding" class="col-sm-2 col-form-label text-right">หมู่บ้าน/อาคาร</label>
+                    <div class="col-sm-3">
+                      <span class="form-control" id="postbuilding"></span>
+                    </div>
+                    <label for="postvillageno" class="col-sm-1 col-form-label text-right">หมู่ที่</label>
+                    <div class="col-sm-2">
+                      <span class="form-control" id="postvillageno"></span>
+                    </div>
+                  </div>
+
+
+                  <div class="form-group row">
+                    <label for="postroad" class="col-sm-1 col-form-label text-right nopadding">ถนน</label>
+                    <div class="col-sm-3">
+                      <span class="form-control" id="postroad"></span>
+                    </div>
+                    <label for="postalley" class="col-sm-1 col-form-label text-right">ซอย</label>
+                    <div class="col-sm-2 nopadding">
+                      <span class="form-control" id="postalley"></span>
+                    </div>
+                    
+                    <label for="postprovince" class="col-sm-1 col-form-label text-right nopadding">จังหวัด</label>
+                    <div class="col-sm-4">
+                      <span class="form-control" id="postprovince"></span>
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    
+                    <label for="postdistrict" class="col-sm-2 col-form-label text-right">อำเภอ</label>
+                    <div class="col-sm-4 nopadding">
+                      <span class="form-control" id="postdistrict"></span>
+                    </div>
+                    <label for="postsubdistrict" class="col-sm-2 col-form-label text-right nopadding">ตำบล/แขวง</label>
+                    <div class="col-sm-4">
+                      <span class="form-control" id="postsubdistrict"></span>
+                    </div>
+                   
+                  </div>
+                  <div class="form-group row">
+                  <label for="postpostcode" class="col-sm-2 col-form-label text-right">รหัสไปรษณีย์</label>
+                    <div class="col-sm-2">
+                      <span class="form-control" id="postpostcode"></span>
+                    </div>
+                  </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                  <label for="managername" class="col-sm-2 col-form-label text-right">ผู้บริหาร</label>
+                  <label for="managername" class="col-sm-1 col-form-label text-right nopadding">ชื่อ</label>
+                  <div class="col-sm-4">
+                    <span class="form-control" id="managername"></span>
+                  </div>
+                  <label for="managerlastname" class="col-sm-1 col-form-label text-right nopadding">นามสกุล</label>
+                  <div class="col-sm-4">
+                    <span class="form-control" id="managerlastname"></span>
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <label for="managernickname" class="col-sm-2 col-sm-offset-1 col-form-label text-right nopadding">ชื่อเล่น</label>
+                  <div class="col-sm-2">
+                    <span class="form-control" id="managernickname"></span>
+                  </div>
+                  <label for="managertel" class="col-sm-2 col-form-label text-right">เบอร์โทร</label>
+                  <div class="col-sm-4">
+                    <span class="form-control" id="managertel"></span>
+                  </div>
+              </div>
+
+              <div class="form-group row">
+                  <label for="contactname" class="col-sm-2 col-form-label text-right">ผู้ประสานงาน</label>
+                  <label for="contactname" class="col-sm-1 col-form-label text-right nopadding">ชื่อ</label>
+                  <div class="col-sm-4">
+                    <span class="form-control" id="contactname"></span>
+                  </div>
+                  <label for="contactlastname" class="col-sm-1 col-form-label text-right nopadding">นามสกุล</label>
+                  <div class="col-sm-4">
+                    <span class="form-control" id="contactlastname"></span>
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <label for="contactnickname" class="col-sm-2 col-sm-offset-1 col-form-label text-right nopadding">ชื่อเล่น</label>
+                  <div class="col-sm-2">
+                    <span class="form-control" id="contactnickname"></span>
+                  </div>
+                  <label for="contacttel" class="col-sm-2 col-form-label text-right">เบอร์โทร</label>
+                  <div class="col-sm-4">
+                    <span class="form-control" id="contacttel"></span>
+                  </div>
+              </div>
+                </div>
+                <div class="panel-footer">
+                  <div class='row'>
+                      <div class='col-sm-12'>
+                        <div class='pull-right'>
+                      <input id='btnedit' type="button" class="btn btn-warning" value="แก้ไขข้อมูล">
+                      <input id='btncancel' type="button" class="btn btn-primary" value="ย้อนกลับ">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </body>
+</html>

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Free Bootstrap Admin Template : Binary Admin</title>
+	<!-- BOOTSTRAP STYLES-->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+     <!-- FONTAWESOME STYLES-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+        <!-- CUSTOM STYLES-->
+    <link href="assets/css/custom.css" rel="stylesheet" />
+     <!-- GOOGLE FONTS-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+  </head>
+
+  <body>
+    <div id="wrapper">
+
+
+        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="main.html" style='background-color: green'>Q Setting</a> 
+            </div>
+
+                <div class="col-md-6">
+                    <form role="form">
+                        <div class="form-group">
+                            <input onkeypress="handleFunc(event)" id='web-branch' class="form-control" style="margin-top: 12px;" placeholder="Enter branch address..."/>
+                        </div>
+                    </form>
+                </div>
+
+                <div style="color: white; padding: 12px 50px 5px 0px; float: left; font-size: 16px;"> 
+                    &nbsp; <a id='web-connect' onclick='connectFunc()' class="btn btn-danger square-btn-adjust">Connect...</a> 
+                </div>
+
+            
+        </nav>   
+
+        <!-- /. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+				<li class="text-center">
+                    <img src="assets/img/find_user.png" class="user-image img-responsive"/>
+					</li>
+				
+					
+                    <li>
+<!--                        <a  href="main.html"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a> -->
+                        <a class="active-menu"  href="main.html"><i class="fa fa-dashboard fa-3x"></i> Realtime</a>
+                    </li>
+
+<!--                    <li>
+                        <a  href="main.html"><i class="fa fa-desktop fa-3x"></i> Kiosk</a>
+                    </li>
+
+                    <li>
+                        <a  href="tab-panel.html"><i class="fa fa-qrcode fa-3x"></i> Tabs & Panels</a>
+                    </li>
+
+						   <li  >
+                        <a  href="chart.html"><i class="fa fa-bar-chart-o fa-3x"></i> Morris Charts</a>
+                    </li>	
+
+                      <li  >
+                        <a  href="table.html"><i class="fa fa-table fa-3x"></i> Table Examples</a>
+                    </li>
+
+                    <li  >
+                        <a  href="form.html"><i class="fa fa-edit fa-3x"></i> Forms </a>
+                    </li>				
+					                   
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap fa-3x"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="#">Second Level Link</a>
+                            </li>
+                            <li>
+                                <a href="#">Second Level Link</a>
+                            </li>
+                            <li>
+                                <a href="#">Second Level Link<span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a href="#">Third Level Link</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Third Level Link</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Third Level Link</a>
+                                    </li>
+
+                                </ul>
+                               
+                            </li>
+                        </ul>
+                      </li>  
+
+                  <li  >  -->
+<!--                        <a class="active-menu"  href="main.html"><i class="fa fa-square-o fa-3x"></i> Blank Page</a> 
+                        <a  href="#"><i class="fa fa-square-o fa-3x"></i> Blank Page</a>
+                    </li>	-->
+
+                </ul>
+               
+            </div>
+            
+        </nav>  
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper" >
+            <div id="page-inner">
+
+                <!-- /. ROW  -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2 id='dsp-branch' style="color:blue">No branch address </h2>   
+                        <h5 style="color:green">Welcome to ppe smart Q</h5>                       
+                    </div>
+
+                    <div class="col-md-6">
+                    <div  style="padding: 35px 0px 0px 100px; float: left; font-size: 16px;">
+					<div class="btn-group">
+					  <button class="btn btn-success">Kiosk set</button>
+					  <button data-toggle="dropdown" class="btn btn-success dropdown-toggle"><span class="caret"></span></button>
+					    <ul class="dropdown-menu">
+						  <li><a onclick='reloadFunc1()' href="#">Template-1</a></li>
+						  <li><a onclick='reloadFunc2()' href="#">Template-2</a></li>
+						  <li><a onclick='reloadFunc3()' href="#">Template-3</a></li>
+						  <li class="divider"></li>
+				  	      <li><a href="#">Upload template</a></li>
+					    </ul>
+					</div>
+					</div>
+					</div>
+
+                </div>
+
+                 <!-- /. ROW  -->
+                  <hr />
+                <div class="row">
+                    <div class="col-md-12">
+
+			      <h3 style="color:green">Overall in branch...</h5>                       
+
+                <div class="col-md-3 col-sm-6 col-xs-6">           
+			<div class="panel panel-back noti-box">
+                <span class="icon-box bg-color-red set-icon">
+                    <i class="fa fa-rss"></i>
+                </span>
+                <div class="text-box" >
+                    <p class="main-text" id='total'> Q</p>
+                    <p class="text-muted">Total</p>
+                </div>
+             </div>
+		     </div>
+                    <div class="col-md-3 col-sm-6 col-xs-6">           
+			<div class="panel panel-back noti-box">
+                <span class="icon-box bg-color-green set-icon">
+                    <i class="fa fa-bell"></i>
+                </span>
+                <div class="text-box" >
+                    <p class="main-text" id='wait'> Q</p>
+                    <p class="text-muted">Wait</p>
+                </div>
+             </div>
+		     </div>
+                    <div class="col-md-3 col-sm-6 col-xs-6">           
+			<div class="panel panel-back noti-box">
+                <span class="icon-box bg-color-blue set-icon">
+                    <i class="fa fa-tasks"></i>
+                </span>
+                <div class="text-box" >
+                    <p class="main-text" id='service'> Q</p>
+                    <p class="text-muted">Service</p>
+                </div>
+             </div>
+		     </div>
+                    <div class="col-md-3 col-sm-6 col-xs-6">           
+			<div class="panel panel-back noti-box">
+                <span class="icon-box bg-color-brown set-icon">
+                    <i class="fa fa-star"></i>
+                </span>
+                <div class="text-box" >
+                    <p class="main-text" id='success'> Q</p>
+                    <p class="text-muted">Success</p>
+                </div>
+             </div>
+		     </div>
+			</div>
+			</div>
+
+                <hr />
+
+                 <!-- /. ROW  -->
+                <div class="row" >
+
+                    <div class="col-md-12">
+               
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                           Employee ... 
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-md-1">#</th>
+                                            <th class="col-md-1">Name</th>
+                                            <th class="col-md-1">Login</th>
+                                            <th class="col-md-1">Status</th>
+                                            <th class="col-md-1">Q-Complete</th>
+                                            <th class="col-md-1">Q-Cancel</th>
+                                            <th class="col-md-1">T-Servive</th>
+                                            <th class="col-md-1">T-Wait</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody id='usr-table'></tbody>
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    </div>
+                </div>
+
+
+                 <!-- /. ROW  -->
+                <div class="row" >
+
+                    <div class="col-md-12">
+               
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                           Transaction ... 
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-md-1">#</th>
+                                            <th class="col-md-1">Group</th>
+                                            <th class="col-md-1">Q-Total</th>
+                                            <th class="col-md-1">Q-Complete</th>
+                                            <th class="col-md-1">Q-Cancel</th>
+                                            <th class="col-md-1">T-Servive</th>
+                                            <th class="col-md-1">T-Wait</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody id='wrg-table'></tbody>
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    </div>
+                </div>
+
+                <hr />
+                    
+               
+                </div>
+             <!-- /. PAGE INNER  -->
+            </div>
+         <!-- /. PAGE WRAPPER  -->
+        </div>
+     <!-- /. WRAPPER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="assets/js/jquery-1.10.2.js"></script>
+      <!-- BOOTSTRAP SCRIPTS -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="assets/js/jquery.metisMenu.js"></script>
+      <!-- CUSTOM SCRIPTS -->
+    <script src="assets/js/custom.js"></script>
+
+<script src="/socket.io/socket.io.js"></script>
+<script type="text/javascript">
+  var socket = io.connect();
+
+  socket.on('connect', function() {
+//    alert('Socket.io started...');
+
+    socket.on('web-overall', function (data) {
+      document.getElementById('dsp-branch').innerHTML = data.branch;
+      document.getElementById('total').innerHTML = data.total+ ' Q';
+      document.getElementById('wait').innerHTML = data.wait+ ' Q';
+      document.getElementById('service').innerHTML = data.service+ ' Q';
+      document.getElementById('success').innerHTML = data.success+ ' Q';
+    });
+
+
+    socket.on('web-employee', function (data) {
+//      var arr = JSON.parse(data);
+      var i;
+      var out = '';
+      for(i = 0; i < data.length; i++) {
+        out += "<tr><td>" + 
+        data[i]._id +
+        "</td><td>" +
+        data[i].userName +
+        "</td><td>" +
+        data[i].Login +
+        "</td><td>" +
+        data[i].Status +
+        "</td><td>" +
+        data[i].QComplete.toString() +
+        "</td><td>" +
+        data[i].QCancel.toString() +
+        "</td><td>" +
+        data[i].serviceTime.toString() +
+        "</td><td>" +
+        data[i].waitTime.toString() +
+        "</td></tr>";
+      }
+      document.getElementById("usr-table").innerHTML = out;
+    }); 
+
+    socket.on('web-transaction', function (data) {
+      var i;
+      var out = '';
+      for(i = 0; i < data.length; i++) {
+        out += "<tr><td>" + 
+        data[i]._id +
+        "</td><td>" +
+        data[i].grpName +
+        "</td><td>" +
+        data[i].QTotal.toString() +
+        "</td><td>" +
+        data[i].QComplete.toString() +
+        "</td><td>" +
+        data[i].QCancel.toString() +
+        "</td><td>" +
+        data[i].serviceTime.toString() +
+        "</td><td>" +
+        data[i].waitTime.toString() +
+        "</td></tr>";
+      }
+      document.getElementById("wrg-table").innerHTML = out;
+    });  
+
+    setInterval(function()  { 
+      socket.emit('web-realtime', {get: 'all'});
+    }, 1000);  
+    socket.on('disconnect', function () {
+      socket.close();
+//      alert('Socket.io closed...');
+    });
+  });
+
+  function connectFunc() {
+    var b = document.getElementById('web-branch').value;
+    if (b == '')  alert('Please enter branch...');
+    else  { 
+      socket.emit('web-branch', {web: b}); 
+/*      document.getElementById("web-branch").value = "";
+      document.getElementById('dsp-branch').innerHTML = 'No branch address';
+      document.getElementById('total').innerHTML = ' Q';
+      document.getElementById('wait').innerHTML = ' Q';
+      document.getElementById('service').innerHTML = ' Q';
+      document.getElementById('success').innerHTML = ' Q'; */
+//      alert('Test');
+    }
+    window.location.reload();
+  }
+
+  function handleFunc(e){
+    if(e.keyCode === 13)  {
+//      document.getElementById("web-branch").blur();
+//      document.getElementById("web-connect").focus();
+//      connectFunc();
+    }  
+    return false;
+  }
+
+  function reloadFunc1(){
+    socket.emit('web-reload', {web: 'http://localhost:8001/kiosk/template1/kiosk.html?id=1'}); 
+  }
+
+  function reloadFunc2(){
+    socket.emit('web-reload', {web: 'http://localhost:8001/kiosk/template2/kiosk.html?id=1'}); 
+  }
+
+  function reloadFunc3(){
+    socket.emit('web-reload', {web: 'http://localhost:8001/kiosk/template3/kiosk.html?id=1'}); 
+  }
+
+</script>
+
+   </body>
+</html>

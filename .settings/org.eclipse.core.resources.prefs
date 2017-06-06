@@ -1,0 +1,8 @@
+eclipse.preferences.version=1
+encoding//bin/www=UTF-8
+encoding//views/config-workgroup-center.ejs=UTF-8
+encoding//views/realtime-queueservice.ejs=UTF-8
+encoding//views/report-general-excel.ejs=UTF-8
+encoding//views/report-general-table.ejs=UTF-8
+encoding//views/showdetail.ejs=UTF-8
+encoding//views/showgraph.ejs=UTF-8

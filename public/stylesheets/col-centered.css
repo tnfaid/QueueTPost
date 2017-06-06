@@ -1,0 +1,41 @@
+﻿/* centered columns styles */
+
+[class*="col-"]
+{
+    padding-top: 20px;
+    padding-bottom: 25px;
+    background-color: #37B6CE;
+    border-style: solid;
+    border-color: White;
+    border-width: 1px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+[class*="col-"]:before
+{
+    display: block;
+    position: relative;
+    margin-bottom: 8px;
+    font-family: sans-serif;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-align: left;
+}
+
+/* content styles */
+.item
+{
+    display: table;
+}
+.content
+{
+}
+.content:before
+{
+    font-family: sans-serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #747474;
+}
+

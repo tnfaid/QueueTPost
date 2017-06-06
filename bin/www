@@ -1,0 +1,263 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+var app = require('../app');
+var debug = require('debug')('report:server');
+var http = require('http');
+/**
+ * Get port from environment and store in Express.
+ */
+
+var port = normalizePort(process.env.PORT || '3001' );
+app.set('port', port);
+
+/**
+ * Create HTTP server.
+ */
+
+var server = http.createServer(app);
+
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
+
+/*
+
+var io = require('socket.io').listen(server.listen(port));
+
+
+var client = require('socket.io/node_modules/socket.io-client');
+
+var serverUrl = 'http://192.168.1.35:8001/ns';
+var conn = client.connect(serverUrl, { 'force new connection': true }); 
+conn.on('connect', function () {
+  console.log('Client side socket.io started...');	
+
+  conn.on('disconnect', function () {
+    console.log('Client Socket.io closed...');
+  });
+});
+
+var ns = io.of('/ns');
+ns.on('connection', function (socket) {
+});
+*/
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
+/**
+ * Event listener for HTTP server "error" event.
+ */
+
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  var bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port;
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+
+function onListening() {
+  var addr = server.address();
+  var bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
+  debug('Listening on ' + bind);
+}
+
+/*
+io.on('connection', function (socket) {
+  console.log('socket.io started...');
+
+  socket.on('web-realtime', function (data) {
+    if (conn.connected !== false)  {    	
+    console.log ('------------------->', data);
+    conn.emit('api-overall', 'Get summary', function(resp, data) {
+      console.log('server sent summary code',resp, data);
+      var overall = {};
+      overall.branch = serverUrl;
+      overall.total = data.total;
+      overall.wait = data.wait;
+      overall.service = data.service;
+      overall.success = data.success;
+      socket.emit('web-overall', overall);
+    });
+
+    conn.emit('api-employee', 'Get employee', function(resp, data) {
+      console.log('server sent employee code', resp, data);
+      socket.emit('web-employee', data);
+    }); 
+
+    conn.emit('api-transaction', 'Get transaction', function(resp, data) {
+      console.log('server sent transaction code', resp, data);
+      socket.emit('web-transaction', data);
+    }); 
+    
+    conn.emit('api-counter', 'Get Counter', function(resp, data) {
+    console.log('server sent couter code', resp, data);
+    socket.emit('web-counter', data);
+    });
+    
+    }  
+  }); 
+
+  socket.on('web-reload', function (data) {
+    console.log('kiosk to ', data);
+    conn.emit('api-reload', data, function(resp, data) {
+      console.log('server sent transaction code', resp);
+      socket.emit('web-reload', data);
+    }); 
+  }); 
+    
+    socket.on('web-branch', function (data) {
+        console.log('connect to ', data);
+        conn.close();
+        serverUrl = data.web;
+        setTimeout(function() {
+          conn = client.connect(serverUrl, { 'force new connection': true }); 
+        }, 300); 
+    });
+
+  
+    socket.on('web-newworkgroup', function (data) {
+              console.log('Workgroup ', data);
+              conn.emit('updateMongo', data, function(resp, dataserver) {
+                 console.log('server sent update mongo code', resp ,dataserver);
+                 socket.emit('web-reworkgroup', { url : serverUrl , data : dataserver});
+              }); 
+    });
+    
+    // socketIO disconnect
+    socket.on('disconnect', function () {
+      console.log('Socket.io closed...');
+    });
+  */
+    /* ----------------------------------------Panya---------------------------------------------- */
+    /* Client Download Template Kiosk - Ticket */ 
+	/*
+    socket.on('downloadTemplate', function(data){
+      console.log('downloadTemplate',data);
+      var branchNode = client.connect(data.branchip, { 'force new connection': true }); 
+      branchNode.on('connect',function(){
+         console.log('onconnect' , data);
+         branchNode.emit('downloadTemplate', data,function(res,data){
+             branchNode.close();
+              socket.emit('downloadTemplate', data);  
+         }); 
+      });
+    });
+	*/
+   /* Set Template Kiosk - Ticket */ 
+   /*
+   socket.on('defaultTemplate', function(data){
+     console.log(arguments);
+     console.log('defaultTemplate',data);
+     var branchNode = client.connect(data.branchip, { 'force new connection': true }); 
+     branchNode.on('connect',function(){
+        console.log('onconnect' , data);
+        branchNode.emit('defaultTemplate', data,function(res,data){
+            branchNode.close();
+             socket.emit('defaultTemplate', data);  
+        }); 
+     });
+   });
+*/
+   /* Set Sound */ 
+   /*
+   socket.on('defaultSound', function(data){
+     var branchNode = client.connect(data.branchip, { 'force new connection': true }); 
+     branchNode.on('connect',function(){
+        console.log('onconnect' , data);
+
+        branchNode.emit('defaultSound', data,function(res,data){
+            branchNode.close();
+             socket.emit('defaultSound', data);  
+        }); 
+     });
+	 
+   });
+   */
+    /* Reload Kiosk Client */
+	/*
+    socket.on('web-reloaded', function (data) {
+      console.log('defaultTemplate',data);
+      var branchNode = client.connect(data.branchip, { 'force new connection': true }); 
+      branchNode.on('connect',function(){
+         console.log('onconnect' , data);
+         branchNode.emit('api-reload', data,function(res,data){
+             branchNode.close();
+              socket.emit('web-reloaded', data);  
+         }); 
+      });
+    }); 
+  */
+  /*
+    socket.on('api-eai', function(data){
+
+      console.log('api-eai',data);
+      var cust = { id : '308238123',
+                   name : 'น.ส.จุฑารัตน์ อ่อนสา',
+                   segment : 'Mass',
+                   birthDate : '23/12/2528'
+               };
+      socket.emit('api-eai',cust);
+    });
+
+
+
+});
+	*/
+/*
+var pro = require('./socket_process');
+pro.baseInit(function(err,status)  {
+	if (status==true){
+		pro.start();
+		//pro.unittest();
+	}
+})
+*/	

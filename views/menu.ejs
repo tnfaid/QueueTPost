@@ -1,0 +1,93 @@
+<% 
+if (!Array.prototype.find) {
+  Array.prototype.find = function(predicate) {
+    if (this === null) {
+      throw new TypeError('Array.prototype.find called on null or undefined');
+    }
+    if (typeof predicate !== 'function') {
+      throw new TypeError('predicate must be a function');
+    }
+    var list = Object(this);
+    var length = list.length >>> 0;
+    var thisArg = arguments[1];
+    var value;
+
+    for (var i = 0; i < length; i++) {
+      value = list[i];
+      if (predicate.call(thisArg, value, i, list)) {
+        return value;
+      }
+    }
+    return undefined;
+  };
+}
+
+function findMenu(Name){
+    return menu.find(function(x){return x.menuName === Name});
+}
+//var roleLevel = user.roleLevel;
+%>
+
+<div class="navbar navbar-inverse navbar-fixed-top docs-nav" id='cssmenu'>
+        <ul class='left'>
+            <li><a href='/'><img src="/images/content/ic_home_white_24dp.png" />Home</a></li>
+        
+            <% if(findMenu('Setting') !== undefined){  %>
+                <li class='has-sub'><a href='#'>
+                    <img src="/images/content/ic_settings_white_24dp.png" />Setting</a>
+                    <ul>
+                        <% if (findMenu('Modify Role') !== undefined) { %>
+                        <li class='left'><a href='<%= host %>/config/role'>Modify Role</a></li>
+                        <% } %>
+                        <% if (findMenu('User Management') !== undefined) { %>
+                        <li class='left'><a href='<%= host %>/config/central_account'>User Management</a></li>
+                        <% } %>
+                        <% if (findMenu('Branch') !== undefined) { %>
+                        <li class='left'><a href='<%= host %>/config/branch'>Branch</a></li>
+                        <% } %>
+                    </ul>
+                </li>
+            <% } %>
+    
+            <li class='has-sub'><a href='#'>
+                <img src="/images/content/ic_assessment_white_24dp.png" />Report</a>
+                 <ul>
+                     <li class='last' style="width:250px"><a href="<%= host %>/reports/general"><span>รายงานทั่วไป (General Report)</span></a></li>
+                     <li class='last' style="width:250px"><a href="<%= host %>/reports/summary"><span>รายงานสรุป (Summary Report)</span></a></li>
+                     <li class='last' style="width:250px"><a href="<%= host %>/reports/summary_month"><span>รายงานสรุปยอดผู้ใช้บริการต่อเดือน</span></a></li>
+                 </ul>
+                 <!-- 
+                <ul>
+                    <li class='has-sub'><a href='#'>Summary Report</a>
+                        <ul>
+                            <li class='last' style="width:250px"><a href="http://<%= host %>/reports/generalreport"><span>General Report</span></a></li>
+                            <li class='last' style="width:250px"><a href='http://<%= host %>/reports/summarytransection'><span>Summary by Transection</span></a></li>
+                            <li class='last' style="width:250px"><a href='http://<%= host %>/reports/summarycounter'><span>Summary by Counter </span></a></li>
+                            <li class='last' style="width:250px"><a href='http://<%= host %>/reports/summaryuser'><span>Summary by Users</span></a></li>
+                            <li class='last' style="width:250px"><a href='http://<%= host %>/reports/summarymonth'><span>Monthly</span></a></li>
+                        </ul>
+                    </li>
+                    <li class='has-sub'><a href='#'>Realtime Report</a>
+                        <ul>
+                            <li class='last' style="width:250px"><a href="http://<%= host %>/realtime/queueservice"><span>Queue Service</span></a></li>
+                            <li class='last' style="width:250px"><a href='http://<%= host %>/realtime/counter'><span>Employees</span></a></li>
+                            <li class='last' style="width:250px"><a href='http://<%= host %>/realtime/transection'><span>Transection</span></a></li>
+                        </ul>
+                    </li>
+                    <li class='has-sub'><a href='<%= host %>/graph'><span>Dashboard</span></a>
+                        <ul>
+                            <li class='last' style="width:250px"><a href="http://<%= host %>/reserv"><span>Reservation</span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+                 -->    
+            </li>
+            <li class='rightmenu'><a href='<%= host %>/logout' >
+                <img src="/images/content/ic_lock_outline_white_24dp.png" />Logout</a>
+                    <ul>
+                        <li><a href='/changepwd'>Change Password</a></li>
+                    </ul>
+                </li>
+            <li class='rightmenu'><a href='#'>Wellcome </a></li>
+        </ul>
+</div>

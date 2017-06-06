@@ -1,0 +1,96 @@
+﻿
+	.docs-nav {
+		background-color:#28364f;
+		color:#ffffff;
+		-webkit-transition: all 1s ease-in-out;
+        -moz-transition: all 1s ease-in-out;
+        -o-transition: all 1s ease-in-out;
+        -ms-transition: all 1s ease-in-out;
+	}
+        .custab
+        {
+		border: 1px solid #ccc;
+            padding: 5px;
+            margin: 5% 0;
+            box-shadow: 3px 3px 2px #ccc;
+            transition: 0.5s;
+    }
+        .custab:hover
+        {
+            box-shadow: 3px 3px 0px transparent;
+            transition: 0.5s;
+    }
+        .table tbody > tr > td.vert-align
+        {
+            vertical-align: middle;
+    }
+    .table th 
+        {
+            text-align:center;
+	}
+	.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+		background-color: #595959;
+
+	}
+	.gridpager table
+	{
+			float:right;
+			margin-right:15px;
+	}
+	.gridpager table > tbody > tr > td
+	{
+			padding-left:5px;
+	}
+	
+	.stylish-input-group .input-group-addon{
+    		background: white !important;
+	}
+	.stylish-input-group .form-control{
+		border-right:0; 
+		box-shadow:0 0 0; 
+		border-color:#ccc;
+	}
+	.stylish-input-group button{
+    		border:0;
+    		background:transparent;
+	}
+
+	.inputLogin
+        {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 5px 5px 5px 5px;
+        }
+        .buttonLogin
+        {
+            width: 100%;
+            padding: 6px 5px 6px 5px;
+        }
+        .loginfooter
+        {
+            height: 20px;
+            width: 100%;
+            position: absolute;
+            padding: 10px 10px 10px 10px;
+            left: 0;
+            bottom: 0;
+            background-color: #28364f;
+            color: #FFFFFF;
+            text-align: right;
+        }
+
+	.ModalPopupBG
+	{
+    		background-color: #000000;
+    		filter: alpha(opacity=80);
+    		opacity: 0.7;
+	}
+	.modal-head-danger{
+		background-color: #c9302c;
+		color:#ffffff;
+		border-top-right-radius: 5px;
+		-moz-border-radius-topright: 5px;
+		-moz-border-radius-topleft: 5px;
+		-webkit-border-top-right-radius: 5px;
+		-webkit-border-top-left-radius: 5px;
+	}

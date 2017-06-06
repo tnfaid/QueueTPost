@@ -1,0 +1,22 @@
+
+
+                        <table style="width:100%" class="table">
+  
+							 <thead class="bg-info">
+								<tr style="text-align: center;">
+								<td style="text-align: center;"><strong>หมายเลขคิว</strong></td>
+								<td style="text-align: center;"><strong>ธุรกรรม</strong></td>
+								<td style="text-align: center;"><strong>ช่องบริการ</strong></td>
+								<td style="text-align: center;"><strong>กดคิว</strong></td>
+								<td style="text-align: center;"><strong>เวลาเริ่มให้บริการ</strong></td>
+								<td style="text-align: center;"><strong>เวลาสิ้นสุดการให้บริการ</strong></td>
+								<td style="text-align: center;"><strong>เวลาในการให้บริการ</strong></td>
+								<td style="text-align: center;"><strong>เวลารอ</strong></td>
+								<td style="text-align: center;"><strong>สถานะ</strong></td>
+
+								</tr>
+							   
+							</thead>
+							<tbody></tbody>
+                        </table>
+                    

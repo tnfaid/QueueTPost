@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Config - Account</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="Stylesheet" href="/stylesheets/bootstrap.min.css" />
+    <link rel="Shortcut Icon" href="/images/content/Icon.ico" />
+     <link rel="Stylesheet" href="/stylesheets/theme.css" />
+  <link rel="Stylesheet" href="/stylesheets/template.css" />
+  <link rel="Stylesheet" href="/stylesheets/menustyles.css" />
+  <link href="/stylesheets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<!--  <link rel="Stylesheet" href="/stylesheets/typeahead.css" /> -->
+  
+    <script type="text/javascript" src="/javascripts/lib/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="/javascripts/lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/javascripts/moment.js"></script>
+    <script type="text/javascript" src="/javascripts/date.js"></script>
+    <script type="text/javascript" src="/javascripts/daterangepicker.js"></script>
+<!--     <script type="text/javascript" src="/javascripts/typeahead.bundle.js"></script> -->
+    
+<!--     <script type="text/javascript" src="/socket.io/socket.io.js"></script>  -->  
+      <script type="text/javascript" src='/views/db_central_account_view.js' ></script>
+  
+   <!-- <script type="text/javascript" src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+       <script type="text/javascript" src="/javascripts/typeahead.bundle.js"></script>  --> 
+      
+    <link rel="Stylesheet" type="text/css" media="all" href="/stylesheets/daterangepicker.css" />
+     
+    <style type="text/css">
+        h3 {   font-family:'Montserrat', sans-serif;
+                text-shadow:1px 1px 2px rgba(34,34,34,0.5)
+            }
+
+        body {
+          background-color: #1a1a1a;
+          color: cyan;
+        }
+
+        .backgroundtulisan{
+            background-color: #333333;
+            width: 1250px;
+            height: 10px
+            margin-right: 0px;
+            font-size: 12px;
+        }
+
+        .dropbtn {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 16px;
+            font-size: 20px;
+            margin-bottom: 0px;
+            border: none;
+            cursor: pointer;
+            float: left;
+        }
+
+        .dropbtn:hover, .dropbtn:focus {
+            background-color: #63c5e9;
+        }
+
+        .dropdown {
+            float: right;
+            position: relative;
+            display: inline-block;
+            
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            overflow: auto;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            right: 0;
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            margin-left: 100px;
+        }
+
+        .dropdown a:hover {background-color: #f1f1f1}
+
+        .show {display:block;}
+
+        input[type=text] {
+            position: relative;
+            margin-top: 0px;
+            width: 0%;
+            background-color: #1a1a1a;
+            min-width: 150px;
+            height: 54px;
+            float: right;
+            overflow: hidden;
+            -webkit-transition: width 0.3s;
+            -moz-transition: width 0.3s;
+            transition: width 0.3s;
+            -webkit-backface-visibility: hidden;
+            border: none;
+            font-size: 13px;
+        }
+
+
+        input[type=text]:focus {
+            width: 40%;
+        }
+
+        .main-wrapper {
+            border-radius: 4px;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+            position: relative;
+        }
+
+        .myBox{
+          font-size: 1em;
+          border: 2.5px solid #1B8EB9;
+          padding: 6px;
+          color: cyan;
+          font-weight: 300;
+          box-sizing: border-box;
+          text-indent: 6px;
+          -webkit-box-shadow: inset 1px 0px 0px -1px #404040;
+          box-shadow: inset 1px 0px 0px -1px #404040;
+          transition: box-shadow 0.2s, border 0.2s, color 0.2s, background 0.2s;
+          width: 250px;
+           background: linear-gradient(
+             #1a1a1a, #1a1a1a 50%, #333 50%, #333
+          );
+          background-size: 100% 202%;
+        }
+
+        .myBox:focus{
+          color:white;
+          background-position: 100% 100%;
+          background-color: white;
+        }
+
+        .custom-btn {
+        padding: 10px;
+        font-family: 'Roboto', sans-serif;
+        width: 120px;
+        font-weight: 20;
+        font-size: 20px;
+        color: white;
+        margin-right: 150px;
+        background: transparent;
+        outline: none !important;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        display: inline-block;
+      }
+
+      .btn-2 {
+        border: none;
+        border-bottom: 2px solid cyan;
+        border-left: 2px solid cyan;
+      }
+      .btn-2:before, .btn-2:after {
+        position: absolute;
+        content: "";
+        right: 0;
+        top: 0;
+        background: cyan;
+        transition: all 0.3s ease;
+      }
+      .btn-2:before {
+        height: 0%;
+        width: 2px;
+      }
+      .btn-2:after {
+        width: 0%;
+        height: 2px;
+      }
+      .btn-2:hover:before {height: 100%;}
+      .btn-2:hover:after {width: 100%;}
+
+        }
+    </style>
+     <script type="text/javascript">
+        var host = '<%= host %>';
+        var frm = new clscentral_account_view();
+        frm.Fn_Initial();
+        
+     </script>
+     <script>
+      /* When the user clicks on the button, 
+      toggle between hiding and showing the dropdown content */
+      function myFunction() {
+          document.getElementById("myDropdown").classList.toggle("show");
+      }
+
+      // Close the dropdown if the user clicks outside of it
+      window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+
+          var dropdowns = document.getElementsByClassName("dropdown-content");
+          var i;
+          for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+            }
+          }
+        }
+      }
+      </script>
+  </head>
+  <body>
+
+   <% include menu.ejs %>
+        
+  <div class="container"  style="padding-top: 90px;">
+    <div class="row backgroundtulisan">
+      <div class="col-md-12">
+        <h1>Centralized User Management 
+            <div class="form-inline">
+            <div for="config-demo">
+              <input type="text" name="search" placeholder="Search by employee.." id="txtSearchUser" autocomplete="on">
+            </div>
+
+            <div class="dropdown">
+              <button type="button" id="btnAdd" class="dropbtn" data-toggle='modal' data-target='#central-userdata'>
+              +</button>
+
+              <button type="button" id="btnSearch"  class="dropdown dropbtn" style="float: right;">
+                <span class="glyphicon glyphicon-search"></span>
+              </button>
+            </div>
+            </div>
+            <!-- <button onclick="myFunction()" type="button" style="margin-left:690px;" background-color="#4CAF50;" border="1px solid green;" width:"width:33.3%" >:
+              <div class="MyDropdown" class="dropdown-content">
+                  <!-- <a href="">search</a>
+                  <a href="">add</a> -->
+             <!--  </div>
+            </button> --> 
+            
+        </h1>
+      </div>     
+    </div>
+  </div>
+    
+        <div class="row">
+            <div class="col-md-5 pull-right">
+                        
+            <!--    <div class="input-group stylish-input-group" style="width: 70%; float: left;">
+                    <input type="text" class="form-control" placeholder="Search">                    
+                    <span class="input-group-addon">
+                        <button type="submit">          
+                            <span class="glyphicon glyphicon-search"></span>
+                       </button>
+                    </span>   
+                    
+                </div> -->
+                <div class="col-md-5  pull-right">
+                <!-- <button type="button" id="btnBulkLoad" class="btn btn-primary" style="float: right;" data-toggle='modal' data-target='#central-bulkload'> -->
+                <!--  <img src="../images/content/ic_add_circle_outline_white_24dp.png" />  -->
+                   <!-- Bulk Load</button>   -->
+                   <br></br>
+                    
+          
+        </div>
+            </div>
+          <!--    <div>
+        <input type="text" data-provide="typeahead" autocomplete="on" data-source='["arizona","alaska"]' />
+    </div>  -->
+        </div>  
+         
+      <div class="form-inline">
+<!--             <label class="control-label" for="config-demo">สาขา:
+              <select id="ddlBranch" class="form-control" style="width:325px"></select>
+            </label> -->
+         <!--  </label>
+        </label> -->
+
+      </div>
+      <br>
+      <div class="form-inline">
+<!--    <label class="control-label" for="config-demo">ค้นหาจากชื่อสาขา:
+          <input type="text" class="form-control" id="txtSearchBrname"
+          style="width:250px">&nbsp; &nbsp; &nbsp; -->
+          <!-- <label class="control-label" for="config-demo">ค้นหาจากชื่อพนักงาน:   
+            <input type="text" class="form-control" id="txtSearchUser">
+          </label> -->
+        <!-- </label> -->
+        
+        <!-- <button type="button" id="btnSearch"  class="btn btn-primary"> -->
+       <!--  <span class="glyphicon glyphicon-search" aria-hidden="true"></span>  -->
+     <!--   <img src="../images/content/ic_search_white_24dp.png" />  -->
+         <!--  Search </button>  -->
+   <!--     <input type="button" id="btnAdd" value="Add" class="btn btn-primary">  --> 
+       <!-- <input type="button" id="btnExport" value="Export"  class="btn btn-primary"/> -->
+                <!-- <button type="button" id="btnAdd" class="btn btn-primary" style="width:66px"  data-toggle='modal' data-target='#central-userdata'> -->
+                <!--     <img src="../images/content/ic_add_circle_outline_white_24dp.png" />   -->
+                    <!-- Add</button>
+      </div>
+         
+    </div>
+     -->
+  <!--    <div id="divresult" style="width:400px;height:70px;">
+    
+    
+    </div> -->
+    <div style="padding-left:110px; color:white;">
+    <div class="row backgroundtulisan">
+      <div class="col-md-12 col-centered">
+        <table class='table table-hover custab' id='central-displayuser'>
+        
+        </table>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!--    Modal Reset Password    -->
+  <div class="modal container fade" id="central-confirm-reset" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" >
+        <div class="modal-dialog ">
+            <div class="modal-content" style="color:cyan">
+                <div class="modal-header" style="background-color:#1a1a1a">
+                    <h3>Reset Password</h3>
+                </div>
+                <div class="modal-body" style="background-color:#383838; color:white; border:none">                  
+                    <label class="control-label"> Please insert new password to reset password ?</label>
+                  <input type="password" class="form-control myBox" id="central-resetpass" style="width:550px">
+                  <span class="text-danger" id="central-reset-alert"></span>
+                </div>          
+                <div class="modal-footer" style="background-color:#1a1a1a">
+          <button type="button" class="custom-btn btn-2" data-dismiss="modal" style="width:50; height:40px; font-size:14px; position:right; margin-right:40px;">Cancel</button>
+                    <button type="button" id="modalreset" class="custom-btn btn-2"style="width:50; height:40px; font-size:14px; position:right;"  data-target="#modal">Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  <!--    Modal Delete    -->
+  <div class="modal container fade" id="central-confirm-delete" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color:#1a1a1a">
+                <h3>Central Confirm Delete</h3>
+            </div>
+            <div class="modal-body" style="background-color:#383838; color:white; border:none">
+                Do you want Delete ?
+            </div>
+            <div class="modal-footer" style="background-color:#1a1a1a">
+      <button type="button" class="custom-btn btn-2" data-dismiss="modal" style="width:50; height:40px; font-size:14px; position:right; margin-right:40px;">Cancel</button>
+                <button type="button" id="modaldel" class="custom-btn btn-2" data-target="#modal" style="width:50; height:40px; font-size:14px; position:right;">Delete</button>
+            </div>
+        </div>
+    </div>
+  </div>
+  
+
+  </body>
+</html>

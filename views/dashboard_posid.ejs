@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="Stylesheet" href="/stylesheets/bootstrap.min.css" />
+    <link rel="Shortcut Icon" href="/images/content/Icon.ico" />
+    <link rel="Stylesheet" href="/stylesheets/template.css" />
+    <link rel="Stylesheet" href="/stylesheets/menustyles.css" />
+    <link href="/stylesheets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="Stylesheet" type="text/css" media="all" href="/stylesheets/daterangepicker.css" />
+	<link rel="Stylesheet" type="text/css" media="all" href="/stylesheets/bootstrap-datetimepicker.css" />
+	
+    <script type="text/javascript" src="/javascripts/lib/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="/javascripts/moment.js"></script>
+    <script type="text/javascript" src="/javascripts/date.js"></script>
+    <script type="text/javascript" src="/javascripts/daterangepicker.js"></script>    
+    <script type="text/javascript" src="/javascripts/bootstrap-datetimepicker.js"></script>    
+     <script type="text/javascript" src="/views/dashboard_posid_views.js" ></script> 
+
+     <script type="text/javascript">
+       var host = '<%= host %>';
+         var frm = new clsDashboard_Posid_Views();
+         frm.Fn_Initial();
+         
+     </script>
+    </head>
+    <body>
+        <% include menu.ejs %>
+	<div class="container"  style="padding-top: 50px;">
+		<div class="row panel panel-default">
+			<div class="col-md-12 panel-heading">
+				<h3>Dashboard</h3>
+			</div>
+			<div class="col-md-12 panel-body">
+				 <div class="form-group">
+				     <div class="form-inline">
+                        <div class="col-md-10 form-group has-success has-feedback">
+                                <label class="col-md-3 control-label">Branch : </label>
+                                <select id="ddlBranch" class="col-md-3 btn btn-default"></select>
+                        </div>
+                    </div>
+					
+                    <div class="form-inline">
+                        <div class="col-md-10 form-group has-success has-feedback">
+                                <label class="col-md-3 control-label">Period From : </label>
+                                <input type="text" id="txtStartDate" class="col-md-3 form-control" style="margin-right:10px;">
+                                <label class="col-md-2 control-label">Period To </label>
+                                <input type="text" id="txtEndDate" class="col-md-3 form-control" style="margin-right:10px;">
+                        </div>
+
+                    </div>
+					
+                    <div class="form-inline">
+                        <div class="col-md-10  form-group has-success has-feedback">
+                                <label class="col-md-3 control-label" for="config-demo">Period From Time:</label>
+                                 <input type="text" id="txtStartTime" class="col-md-3 form-control" style="margin-right:10px;">
+								<label class="col-md-2 control-label" for="config-demo">Period To  Time :</label>
+                                 <input type="text" id="txtEndTime" class="col-md-3 form-control" style="margin-right:10px;">
+                        </div>
+
+                    </div>
+					 <div class="form-inline">
+                        <div class="col-md-10  form-group has-success has-feedback">
+                                <label class="col-md-3 control-label" for="config-demo">POS ID : </label>
+                                <input type="text" id="txtPosID" class="col-md-3 form-control" style="margin-right:10px;">
+                                <label class="col-md-2 control-label" for="config-demo">Receipt# :</label>
+                                <input type="text" id="txtReceipt" class="col-md-3 form-control" style="margin-right:10px;">
+                        </div>
+
+                    </div>
+					<div class="col-md-10 form-group">&nbsp;</div>
+                    <div class="form-group">
+					       <div class="col-md-10  form-inline">
+							   <input type='button'  class="col-md-2 btn btn-warning" id="btnClear" value='Clear'/>
+								<input type='button'  class="col-md-2  btn btn-info" id="btnSearch" value='Search'/>
+								<input type='button'  class="col-md-2  btn btn-success" id="btnXLS" value='Export XLS'/>
+		
+							</div>
+                    </div>
+					
+				</div >
+				<div class="col-md-12 form-group">&nbsp;</div>
+
+  					
+                    <div class="form-inline" id ="divResult">
+
+                        <table style="width:100%" class='table ' >
+                          
+                         <thead class='bg-info'>
+                            <tr>
+                                <td style="text-align: center;" ><strong>Store Code</strong></td>
+                                <td style="text-align: center;" ><strong>POS ID</strong></td>
+                                <td style="text-align: center;"><strong>Receipt# </strong></td>
+                                <td style="text-align: center;" ><strong>Rating</strong></td>
+                                <td style="text-align: center;"><strong>Reason</strong></td>           
+								<td style="text-align: center;"><strong>Receipt Timestamp</strong></td>    		
+								<td style="text-align: center;"><strong>Rating Timestamp</strong></td>    									
+                            </tr>
+                         </thead>
+                         <tbody></tbody>
+                        </table>
+                    </div>  
+			</div>
+		</div>
+
+            
+            <div id="reportContentXls" style="display:none">
+            </div>
+  	</div>
+
+
+    </body>
+</html>

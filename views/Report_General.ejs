@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="Stylesheet" href="/stylesheets/bootstrap.min.css" />
+    <link rel="Shortcut Icon" href="/images/content/Icon.ico" />
+    <link rel="Stylesheet" href="/stylesheets/template.css" />
+    <link rel="Stylesheet" href="/stylesheets/menustyles.css" />
+    <link href="/stylesheets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="Stylesheet" type="text/css" media="all" href="/stylesheets/daterangepicker.css" />
+	<link rel="Stylesheet" type="text/css" media="all" href="/stylesheets/bootstrap-datetimepicker.css" />
+		
+    <script type="text/javascript" src="/javascripts/lib/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="/javascripts/highcharts.js"></script>
+    <script type="text/javascript" src="/javascripts/modules/exporting.js"></script>
+    <script type="text/javascript" src="/javascripts/lib/angular.js"></script>
+    <script type="text/javascript" src="/javascripts/lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/javascripts/moment.js"></script>
+    <script type="text/javascript" src="/javascripts/date.js"></script>
+    <script type="text/javascript" src="/javascripts/daterangepicker.js"></script>    
+	 <script type="text/javascript" src="/javascripts/bootstrap-datetimepicker.js"></script>    
+
+     <script type="text/javascript" src="/views/report_general_view.js" ></script> 
+     <script type="text/javascript">
+       var host = '<%= host %>';
+         var frm = new clsReport_General_View();
+         frm.Fn_Initial();
+         
+     </script>
+    </head>
+    <body>
+        <% include menu.ejs %>
+	<div class="container"  style="padding-top: 50px;">
+		<div class="row panel panel-default">
+			<div class="col-md-12 panel-heading">
+				<h3>รายงานทั่วไป</h3>
+			</div>
+			<div class="col-md-12 panel-body">
+				
+                    <div class="form-inline">
+                        <div class="col-md-12 form-group has-success has-feedback">
+                                <label class="col-md-2 control-label"  style="text-align:right;">วันที่ : </label>
+                                <input type="text" id="txtStartDate" class="col-md-1 form-control" style="width:130px;margin-right:10px;"/>
+                                <label class="col-md-1 control-label" style="text-align:right;">ถึง : </label>
+                                <input type="text" id="txtEndDate" class="col-md-1 form-control" style="width:130px;margin-right:10px;"/>
+								<label class="col-md-1 control-label"  style="text-align:right;">เวลา : </label>
+                                <input type="text" id="txtStartTime" class="col-md-1 form-control" style="width:100px;margin-right:10px;"/>
+                                <label class="col-md-1 control-label"  style="text-align:right;">ถึง : </label>
+                                <input type="text" id="txtEndTime" class="col-md-1 form-control" style="width:100px;margin-right:10px;"/>
+			
+                        </div>
+                 
+                    </div>
+				   <div class="form-inline">
+                        <div class="col-md-12 form-group has-success has-feedback">
+							<label class="col-md-2 control-label" style="text-align:right;" >ธุรกรรม : </label>
+							<select id="ddlJob" class="col-md-2 form-control"  style="width:200px">
+							</select>
+							<label class="col-md-2 control-label" style="text-align:right;" >พนักงาน : </label>
+							<select id="ddlEmployee" class="col-md-2 form-control"  style="width:200px">
+							</select>
+                        </div>
+                 
+                    </div>
+					 <div class="form-inline">
+                        <div class="col-md-12 form-group has-success has-feedback">
+							<label class="col-md-2 control-label" style="text-align:right;" >ช่องบริการ : </label>
+							<select id="ddlCounter" class="col-md-2 form-control"  style="width:200px">
+							</select>
+							<label class="col-md-2 control-label" style="text-align:right;" >สถานะคิว : </label>
+							<select id="ddlStatus" class="col-md-2 form-control"  style="width:200px">
+							</select>
+                        </div>
+                 
+                    </div>
+					 <div class="form-inline">
+                        <div class="col-md-12 form-group has-success has-feedback">
+							<label class="col-md-2 control-label" style="text-align:right;" >ประเภทรายงาน : </label>
+							<input type="radio"  id="rdoJob" name="rdoJob" value="job" class="form-control"  checked >ประเภทธุรกรรม
+							<input type="radio"  id="rdoJob" name="rdoJob" value="counter" class="form-control" >ประเภทข่องรับบริการ
+							<input type="radio"  id="rdoJob" name="rdoJob" value="employee" class="form-control" >ประเภทพนักงานรับบริการ
+                        </div>
+                 
+                    </div>
+					
+							
+				    <div class="col-md-12 form-inline">
+					       <div class="form-group">
+                                <input type='button'  class="btn btn-info" id="btnReport" value='Search'>
+								<input type='button'  class="btn btn-info" id="btnExport" value='Export'>
+                        </div>
+					 </div>
+                    <!---->
+                    <br/>				    
+                    <div class="form-inline" id="divResult">
+
+                        <table style="width:100%" class='table' >
+  
+							 <thead class='bg-info'>
+								<tr style="text-align: center;">
+								<td style="text-align: center;" ><strong>หมายเลขคิว</strong></td>
+								<td style="text-align: center;"><strong>ธุรกรรม</strong></td>
+								<td style="text-align: center;" ><strong>ช่องบริการ</strong></td>
+								<td style="text-align: center;" ><strong>กดคิว</strong></td>
+								<td style="text-align: center;" ><strong>เวลาเริ่มให้บริการ</strong></td>
+								<td style="text-align: center;" ><strong>เวลาสิ้นสุดการให้บริการ</strong></td>
+								<td style="text-align: center;" ><strong>เวลาในการให้บริการ</strong></td>
+								<td style="text-align: center;" ><strong>เวลารอ</strong></td>
+								<td style="text-align: center;" ><strong>สถานะ</strong></td>
+
+								</tr>
+							   
+							</thead>
+							<tbody>
+							</tbody>
+                        </table>
+                    </div>  
+			</div>
+		</div>
+		<!-- Report -->
+           <div id="divResult" class="row" >
+ 
+          </div>
+            
+            <div id="reportContentXls" style="display:none">
+            </div>
+  	</div>
+
+
+    </body>
+</html>

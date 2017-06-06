@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="Stylesheet" href="/stylesheets/bootstrap.min.css" />
+    <link rel="Shortcut Icon" href="/images/content/Icon.ico" />
+    <link rel="Stylesheet" href="/stylesheets/menustyles.css" />
+    <link href="/stylesheets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="Stylesheet" type="text/css" media="all" href="/stylesheets/daterangepicker.css" />
+    <script type="text/javascript" src="/javascripts/lib/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="/javascripts/highcharts.js"></script>
+    <script type="text/javascript" src="/javascripts/modules/exporting.js"></script>
+    <script type="text/javascript" src="/javascripts/lib/angular.js"></script>
+    <script type="text/javascript" src="/javascripts/lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/javascripts/moment.js"></script>
+    <script type="text/javascript" src="/javascripts/date.js"></script>
+    <script type="text/javascript" src="/javascripts/daterangepicker.js"></script>    
+    <script type="text/javascript" src="/views/ConfigQuarter_views.js" ></script> 
+    <style type="text/css">
+         div > table {
+     		font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    		font-size: 14px;
+     	}
+     	div > table , tr , td {
+     		border : 1px solid #ddd;
+     		padding : 8px;
+     	}
+    	.bg-kbank {
+    	 	background-color: #2ecc71;
+   		 	color: #fff;
+   		 	text-align: center;
+   		 	border: 1px solid white;
+		    padding: 3px;
+		}
+		.bg-kbank-sec {
+		    background-color: #27ae60;
+		    color: #fff;
+		    text-align: center;
+		    border: 1px solid white;
+		    padding: 3px;
+		}
+		.bg-row1 {
+    	 	background-color: #FFFFFF;
+   		 	color: #000000;
+   		 	text-align: center;
+   		 	border: 1px solid black;
+		    padding: 3px;
+		}
+		.bg-row2 {
+		    background-color: #CCCCCC;
+		    color: #000000;
+		    text-align: center;
+		    border: 1px solid black;
+		    padding: 3px;
+		}
+    </style>
+     <script type="text/javascript">
+       var host = '<%= host %>';
+         var frm = new clsConfigQuarter_Views();
+         frm.Fn_Initial();
+         
+     </script>
+    </head>
+    <body>
+        <% include menu.ejs %>
+	<div class="container"  style="padding-top: 50px;">
+
+            <div class="row panel panel-default">
+                <div class="col-md-12 panel-heading">
+                    <h3>การตั้งค่าไตรมาส</h3>
+                </div>
+                <div class="col-md-12 panel-body">
+            
+                    <table style="width:100%" class='table'>
+
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td style="text-align: center;" colspan="12"><strong>Month</strong></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;"><strong>Quarter</strong></td>
+                            <td style="text-align: center;">JAN</td>
+                            <td style="text-align: center;">FEB</td>
+                            <td style="text-align: center;">MAR</td>
+                            <td style="text-align: center;">APR</td>
+                            <td style="text-align: center;">MAY</td>
+                            <td style="text-align: center;">JUN</td>
+                            <td style="text-align: center;">JUL</td>
+                            <td style="text-align: center;">AUG</td>
+                            <td style="text-align: center;">SEP</td>
+                            <td style="text-align: center;">OCT</td>
+                            <td style="text-align: center;">NOV</td>
+                            <td style="text-align: center;">DEC</td>
+                        </tr>
+                         <tr>
+                            <td style="text-align: center;">Q1</td> 
+                            <td style="text-align: center;"><input id="Q1M1" name="Q1M1" type="checkbox" value="Q1M1" /></td>
+                            <td style="text-align: center;"><input id="Q1M2" name="Q1M2" type="checkbox" value="Q1M2" /></td>
+                            <td style="text-align: center;"><input id="Q1M3" name="Q1M3" type="checkbox" value="Q1M3" /></td>
+                            <td style="text-align: center;"><input id="Q1M4" name="Q1M4" type="checkbox" value="Q1M4" /></td>
+                            <td style="text-align: center;"><input id="Q1M5" name="Q1M5" type="checkbox" value="Q1M5" /></td>
+                            <td style="text-align: center;"><input id="Q1M6" name="Q1M6" type="checkbox" value="Q1M6" /></td>
+                            <td style="text-align: center;"><input id="Q1M7" name="Q1M7" type="checkbox" value="Q1M7" /></td>
+                            <td style="text-align: center;"><input id="Q1M8" name="Q1M8" type="checkbox" value="Q1M8" /></td>
+                            <td style="text-align: center;"><input id="Q1M9" name="Q1M9" type="checkbox" value="Q1M9" /></td>
+                            <td style="text-align: center;"><input id="Q1M10" name="Q1M10" type="checkbox" value="Q1M10" /></td>
+                            <td style="text-align: center;"><input id="Q1M11" name="Q1M11" type="checkbox" value="Q1M11" /></td>
+                            <td style="text-align: center;"><input id="Q1M12" name="Q1M12" type="checkbox" value="Q1M12" /></td>
+                         </tr>
+                        <tr>
+                            <td style="text-align: center;">Q2</td>
+                            <td style="text-align: center;"><input id="Q2M1" name="Q2M1" type="checkbox" value="Q2M1" /></td>
+                            <td style="text-align: center;"><input id="Q2M2" name="Q2M2" type="checkbox" value="Q2M2" /></td>
+                            <td style="text-align: center;"><input id="Q2M3" name="Q2M3" type="checkbox" value="Q2M3" /></td>
+                            <td style="text-align: center;"><input id="Q2M4" name="Q2M4" type="checkbox" value="Q2M4" /></td>
+                            <td style="text-align: center;"><input id="Q2M5" name="Q2M5" type="checkbox" value="Q2M5" /></td>
+                            <td style="text-align: center;"><input id="Q2M6" name="Q2M6" type="checkbox" value="Q2M6" /></td>
+                            <td style="text-align: center;"><input id="Q2M7" name="Q2M7" type="checkbox" value="Q2M7" /></td>
+                            <td style="text-align: center;"><input id="Q2M8" name="Q2M8" type="checkbox" value="Q2M8" /></td>
+                            <td style="text-align: center;"><input id="Q2M9" name="Q2M9" type="checkbox" value="Q2M9" /></td>
+                            <td style="text-align: center;"><input id="Q2M10" name="Q2M10" type="checkbox" value="Q2M10" /></td>
+                            <td style="text-align: center;"><input id="Q2M11" name="Q2M11" type="checkbox" value="Q2M11" /></td>
+                            <td style="text-align: center;"><input id="Q2M12" name="Q2M12" type="checkbox" value="Q2M12" /></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">Q3</td>
+                            <td style="text-align: center;"><input id="Q3M1" name="Q3M1" type="checkbox" value="Q3M1" /></td>
+                            <td style="text-align: center;"><input id="Q3M2" name="Q3M2" type="checkbox" value="Q3M2" /></td>
+                            <td style="text-align: center;"><input id="Q3M3" name="Q3M3" type="checkbox" value="Q3M3" /></td>
+                            <td style="text-align: center;"><input id="Q3M4" name="Q3M4" type="checkbox" value="Q3M4" /></td>
+                            <td style="text-align: center;"><input id="Q3M5" name="Q3M5" type="checkbox" value="Q3M5" /></td>
+                            <td style="text-align: center;"><input id="Q3M6" name="Q3M6" type="checkbox" value="Q3M6" /></td>
+                            <td style="text-align: center;"><input id="Q3M7" name="Q3M7" type="checkbox" value="Q3M7" /></td>
+                            <td style="text-align: center;"><input id="Q3M8" name="Q3M8" type="checkbox" value="Q3M8" /></td>
+                            <td style="text-align: center;"><input id="Q3M9" name="Q3M9" type="checkbox" value="Q3M9" /></td>
+                            <td style="text-align: center;"><input id="Q3M10" name="Q3M10" type="checkbox" value="Q3M10" /></td>
+                            <td style="text-align: center;"><input id="Q3M11" name="Q3M11" type="checkbox" value="Q3M11" /></td>
+                            <td style="text-align: center;"><input id="Q3M12" name="Q3M12" type="checkbox" value="Q3M12" /></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">Q4</td>
+                            <td style="text-align: center;"><input id="Q4M1" name="Q4M1" type="checkbox" value="Q4M1" /></td>
+                            <td style="text-align: center;"><input id="Q4M2" name="Q4M2" type="checkbox" value="Q4M2" /></td>
+                            <td style="text-align: center;"><input id="Q4M3" name="Q4M3" type="checkbox" value="Q4M3" /></td>
+                            <td style="text-align: center;"><input id="Q4M4" name="Q4M4" type="checkbox" value="Q4M4" /></td>
+                            <td style="text-align: center;"><input id="Q4M5" name="Q4M5" type="checkbox" value="Q4M5" /></td>
+                            <td style="text-align: center;"><input id="Q4M6" name="Q4M6" type="checkbox" value="Q4M6" /></td>
+                            <td style="text-align: center;"><input id="Q4M7" name="Q4M7" type="checkbox" value="Q4M7" /></td>
+                            <td style="text-align: center;"><input id="Q4M8" name="Q4M8" type="checkbox" value="Q4M8" /></td>
+                            <td style="text-align: center;"><input id="Q4M9" name="Q4M9" type="checkbox" value="Q4M9" /></td>
+                            <td style="text-align: center;"><input id="Q4M10" name="Q4M10" type="checkbox" value="Q4M10" /></td>
+                            <td style="text-align: center;"><input id="Q4M11" name="Q4M11" type="checkbox" value="Q4M11" /></td>
+                            <td style="text-align: center;"><input id="Q4M12" name="Q4M12" type="checkbox" value="Q4M12" /></td>
+                        </tr>
+                        
+                </table>
+
+                        <div class="form-group">
+                             <input type="button" class="btn btn-info" id = "btnSave" value="Save" />
+                             <input type='button' class="btn btn-danger" id= "btnDefault" value='Default'>                           
+                        </div>
+               
+
+                </div>
+            </div>
+       </div>
+		<!-- Report -->
+           <div id="divResult" class="row" >
+ 
+          </div>
+            
+            <div id="reportContentXls" style="display:none">
+            </div>
+  	</div>
+
+
+    </body>
+</html>

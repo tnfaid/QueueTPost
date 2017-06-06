@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Config - Role</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="Stylesheet" href="/stylesheets/bootstrap.min.css" />
+    <link rel="Shortcut Icon" href="/images/content/Icon.ico" />
+    <link rel="Stylesheet" href="/stylesheets/theme.css" />
+    <link rel="stylesheet" href="/stylesheets/w3css.css">
+    <link rel="Stylesheet" href="/stylesheets/menustyles.css" />
+
+    <link href="/stylesheets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="/javascripts/lib/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="/javascripts/lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/views/config_role_view.js"></script>
+    
+    <style>
+    body{
+    	background-color: #1a1a1a;
+    	color: white;
+    }
+
+   	.blue {
+   		background-color: #1B8EB9;
+
+   	}
+   	.afterblue{
+   		/*border: 2.5px solid #1B8EB9;*/
+   		background-color: #1a1a1a;
+   	}
+
+   	.bluewhite{
+   		margin-top: 10px;
+   		background-color: #bce6f5;
+   		color: black;
+   	}
+
+   	.myBox{
+        font-size: 1em;
+        border: 2.5px linear-gradient #1B8EB9;
+        padding: 6px;
+        font-weight: 300;
+        box-sizing: border-box;
+        text-indent: 6px;
+        -webkit-box-shadow: inset 1px 0px 0px -1px #404040;
+        box-shadow: inset 1px 0px 0px -1px #404040;
+        transition: box-shadow 0.2s, border 0.2s, color 0.2s, background 0.2s;
+        width: 250px;
+         background: linear-gradient(
+           black, black 50%, #333 50%, #333
+        );
+        background-size: 100% 202%;
+      }
+
+      .myBox:focus{
+        color:black;
+        background-position: 100% 100%;
+      }
+
+    </style>
+  </head>
+  <body>
+  	<% include menu.ejs %>
+	<div class="container"  style="padding-top: 70px;">
+		<div class="row">
+			<div class="col-md-12">
+				<h3>Role</h3>
+			</div>
+		</div>
+		<div class="row" style="padding-top:20px">
+			<% if(menu.find(function(x){return x.menuName === 'Modify Role'}) !== undefined){ %>
+			<form method="get" action="/config/role/add">
+				<div class="col-md-2 col-md-offset-10">
+					<button type="submit" id="btnAdd" class="btn btn-primary" style="float: right;" >
+	                    <i class="fa fa-plus-circle"></i>
+	                    Add</button>
+				</div>
+			</form>
+			<% } %>
+		</div>
+		<div class="row" style="padding-top:20px">
+			<div class='col-md-12'>
+				<table id='tbresult' class="table table-hover" style="border-collapse:collapse;">
+					<thead>
+						<tr class="blue">
+						<th style="width:5%">&nbsp;</th>
+						<th class="text-center">Role</th>
+						<th class="text-center">Discription</th>
+						<th class="text-center" width="15%">Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% for(i = 0 ; i < data.length ; i++) { %>
+						<tr data-toggle="collapse" data-target="#<%= data[i]._id %>" class="afterblue myBox">
+							<td class="text-center"><button onclick="document.getElementById('<%= data[i]._id %>'').style.display='block'"  class="btn btn-default btn-xs"><i class="fa fa-plus"></i></button></td>
+							<td class="text-center"><%= data[i].roleName %></td>
+							<td class="text-center"><%= data[i].Discription %></td>
+							<td class='text-center'>
+							<% if(menu.find(function(x){return x.menuName === 'Modify Role'}) !== undefined){ %>
+								<div class="btn-group">
+									<button class="btn btn-sm btn-warning" onclick="EditItem('<%= data[i]._id %>')">Edit</button>
+									<button class="btn btn-sm btn-danger" onclick="DelItem('<%= data[i]._id %>')">Delete</button>
+								</div>
+							<% } %>
+							</td>
+						</tr>
+						<tr>
+           					<td colspan="12" class="afterblue">
+           					<div id="<%= data[i]._id %>" class="w3-modal">
+							    <div class="w3-modal-content">
+							      <div class="w3-container">
+							      	 <span onclick="document.getElementById('<%= data[i]._id %>').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+				           					<table class="table bluewhite">
+				           						<thead>
+				           							<tr class="blue">
+				           							<th class="text-center" width="35%">Menu</th>
+				           							<th class="text-center">Discription</th>
+				           							</tr>
+				           						</thead>
+				           						<tobody class="bluewhite">
+				           							<% for(j = 0 ; j < data[i].menu.length ; j++){ %>
+				           								<tr> 
+				           									<td><%= data[i].menu[j].menuName %></td>
+				           									<td><%= data[i].discription %></td>
+				           								</tr>
+				           							<% } %>
+				           						</tobody>
+				           					</table>
+				           				</div>
+								    </div>
+								</div>
+           					</div>
+           					</td>
+           				</tr>
+						<% } %>
+					</tbody>
+				</table>
+			</div>
+		</div>
+ 	</div>
+  </body>
+</html>

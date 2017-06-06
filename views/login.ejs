@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="Stylesheet" href="/stylesheets/bootstrap.min.css" />
+    <link rel="Shortcut Icon" href="/images/new-icon.png" />
+    <link rel="Stylesheet" href="/stylesheets/theme.css" />
+    <link rel="Stylesheet" href="/stylesheets/menustyles.css" />
+    <link href="/stylesheets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+    <script type="text/javascript" src="/javascripts/lib/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="/javascripts/lib/bootstrap.min.js"></script>
+    
+    <script type="text/javascript">
+            function check_data(){
+                    $('#lbAlert').html(""); 
+                    if (($('#txtUser').val() == "") || ($('#txtPWD').val() == "")){
+                            $('#lbAlert').html("Please enter your username and password."); 
+                            return false;
+                    }
+                    return true;
+            }
+    </script> 
+    <style type="text/css">
+        
+    .stylish-input-group .input-group-addon{
+            background: white !important;
+    }
+    .stylish-input-group .form-control{
+        border-right:0; 
+        box-shadow:0 0 0; 
+        border-color:#ccc;
+    }
+    .stylish-input-group button{
+            border:0;
+            background:transparent;
+    }
+
+    .inputLogin
+        {
+            width: 80%;
+            padding: 15px 15px 15px 15px;
+            margin-top: 0px;
+            margin-bottom: 10px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            border: solid #999 1px;
+        }
+        .footer
+        {
+            height: 40px;
+            width: 100%;
+            position: absolute;
+            padding: 10px 10px 10px 10px;
+            left: 0;
+            bottom: 0;
+            background-color: #1a1a1a;
+            color: #FFFFFF;
+            text-align: right;
+        }
+
+    /* centering styles for jsbin */
+    html, body
+    {
+        width: 100%;
+        height: 100%;
+    }
+    html
+    {
+        display: table;
+    }
+    .row-centered
+    {
+        text-align: center;
+    }
+    .col-centered
+    {
+        /*display: inline-block;
+        float: none; /* reset the text-align */
+        text-align: left; /* inline-block space fix */
+        margin-right: -4px;
+    }
+    .col-fixed
+    {
+        /* custom width */
+        width: 320px;
+    }
+    .col-min
+    {
+        /* custom min width */
+        min-width: 320px;
+    }
+    .col-max
+    {
+        /* custom max width */
+        max-width: 320px;
+    }
+
+
+    /* visual styles */
+    body.login
+    {
+        display: table-cell;
+        vertical-align: middle;
+        padding-bottom: 40px;
+        background: #0f0f0a;
+    }
+    h1.login
+    {
+        margin-top: 90px;
+        margin-bottom: 80px;
+        font-size: 60px;
+        line-height: 34px;
+        text-align: center;
+        color: White;
+    }
+
+    .containers {
+  position: relative;
+  width: 100%;
+}
+
+.image {
+  display: block;
+  width: 490px;
+  height: 500px;
+
+  border-radius: 20px;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #00cca3;
+  background: -webkit-linear-gradient(top left, #5095fb 0%, #69fcc1 100%);
+        background: -moz-linear-gradient(top left, #5095fb 0%, #69fcc1 100%);
+        background: -o-linear-gradient(top left, #5095fb 0%,#69fcc1 100%);
+        background: linear-gradient(to top left, #3785fb 0%, #37fbad 100%);
+  overflow: hidden;
+  width: 0px;
+  height: 100%;
+  transition: .5s ease;
+  border-radius: 0px;
+}
+
+.container:hover .overlay {
+  width: 100%;
+}
+
+.text {
+  white-space: nowrap; 
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.textbox {
+    border: 2px solid #ADCCCC;
+    height: 51px;
+    width: 253px;
+    box-shadow: 0px 0px 27px #CCC inset;
+    transition: 500ms all ease;
+    padding: 3px 3px 3px 3px;
+}
+ .textbox:hover, .textbox:focus {
+    width: 263px;
+    transition: 500ms all ease;
+    background: url(/images/content/profile2-login.png) no-repeat right;
+    background-size: 25px 25px;
+    background-position: 96% 62%;
+    padding: 3px 32px 3px 3px;
+} 
+
+.textbox2 {
+    border: 2px solid #ADCCCC;
+    height: 51px;
+    width: 253px;
+    box-shadow: 0px 0px 27px #CCC inset;
+    transition: 500ms all ease;
+    padding: 3px 3px 3px 3px;
+}
+ .textbox2:hover, .textbox2:focus {
+    width: 263px;
+    transition: 500ms all ease;
+    background: url(/images/content/key-login.png) no-repeat right;
+    background-size: 25px 25px;
+    background-position: 96% 62%;
+    padding: 3px 32px 3px 3px;
+} 
+
+.btnExample {
+    margin-top: 30px;
+  color: white;
+  width: 70px;
+  height: 68px;
+  background: url(/images/content/login3.png) no-repeat center #ffff99;
+  border-radius: 50px 50px 50px 50px;
+  font-weight: bold;
+  border: 1px solid #FFFFFF;
+}
+ 
+.btnExample:hover {
+    background: url(/images/content/login3.png) no-repeat center  #99ff99;
+    color: #FFF;
+}
+
+    </style>
+    <link rel="Stylesheet" href="/stylesheets/col-centered.css" />
+</head>
+<body class="login">
+    <div class="container">
+     <div class="col-md-3">
+         <h1 style="color: cyan; text-align: left; font-size: 50px; margin-top: 60px; margin-left: 60px;"><strong>PLEASURE</strong></h1>
+         <h1 style="color: #ffb3ff; text-align: left; font-size: 50px; margin-top: -10px; margin-left: 60px;">in the job puts perfection in the</h1>
+         <h1 style="color: cyan; text-align: left; font-size: 50px; margin-top: -10px; margin-left: 60px;"><strong>WORK</strong></h1>
+         <h1 style="color: #1f7a7a; text-align: left; font-size: 50px; margin-top: 10px; margin-left: 60px;">-Aristotle</h1>
+     </div>
+
+
+     <div class="col-md-9 cols-centered">
+     <div class="containers">
+     <img src="images/new-logo.png" class="image">
+  <div class="overlay">
+        
+            <form id="frmlogin" method="post" action="/login">
+            <div class="col row-centered">
+                <h1 class="login">Login</h1>
+                <input type="text" name="txtUser" ID="txtUser" class="textbox" autocomplete="off" placeholder="Username">
+                <br>
+                <br>
+                <input type="password" name="txtPWD" ID="txtPWD" class="textbox2" placeholder="Password">
+                <div align="center">
+                    <span name="lbAlert" ID="lbAlert" class="text-danger"><%= err %></span>
+                </div>
+                    <input type="submit" class="btnExample" name="btnLogin" ID="btnLogin" value=" " onclick="return check_data();">
+            
+            <span class='text-right' style='display:block;width:100%;padding-top:40px; padding-right: 10px;'>Version 1.0.0.0.1</span>
+        </div>
+            </form>
+<!--  -->
+        </div>
+        </div>
+    </div>
+    </div>
+    <div class="footer loginfooter">
+        <div class="contriner">
+            Queue Management Powered by <a href="http://www.ppetech.com">
+                <img src="/images/new-icon.png" height="20px" width="20px" style="margin-left: 5px;" /></a>
+        </div>
+    </div>
+
+    </body>
+</html>
