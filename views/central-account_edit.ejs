@@ -8,9 +8,10 @@
     <link rel="Stylesheet" href="/stylesheets/bootstrap.min.css" />
     <link rel="Shortcut Icon" href="/images/content/Icon.ico" />
      <link rel="Stylesheet" href="/stylesheets/theme.css" />
-	<link rel="Stylesheet" href="/stylesheets/template.css" />
-	<link rel="Stylesheet" href="/stylesheets/menustyles.css" />
-	<link href="/stylesheets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  	<link rel="Stylesheet" href="/stylesheets/template.css" />
+  	<link rel="Stylesheet" href="/stylesheets/menustyles.css" />
+  	<link href="/stylesheets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="Stylesheet" href="/stylesheets/TitikCss.css" />
 <!-- 	<link rel="Stylesheet" href="/stylesheets/typeahead.css" /> -->
 	
     <script type="text/javascript" src="/javascripts/lib/jquery-2.1.4.min.js"></script>
@@ -32,6 +33,48 @@
         h3 {   font-family:'Montserrat', sans-serif;
                 text-shadow:1px 1px 2px rgba(34,34,34,0.5)
             }
+        body {
+          background-color: #1a1a1a;
+          color: white;
+        }
+
+        .backgroundtulisan{
+            background-color: #333333;
+            width: 1250px;
+            height: 10px
+            margin-right: 0px;
+            font-size: 12px;
+        }
+
+
+        .myBox{
+          font-size: 1em;
+          border: 2.5px solid #1B8EB9;
+          padding: 6px;
+          color: cyan;
+          font-weight: 300;
+          box-sizing: border-box;
+          height: 34px;
+          text-indent: 6px;
+          -webkit-box-shadow: inset 1px 0px 0px -1px #404040;
+          box-shadow: inset 1px 0px 0px -1px #404040;
+          transition: box-shadow 0.2s, border 0.2s, color 0.2s, background 0.2s;
+          width: 250px;
+           background: linear-gradient(
+             #1a1a1a, #1a1a1a 50%, #333 50%, #333
+          );
+          background-size: 100% 202%;
+        }
+
+        .myBox:focus{
+          color:white;
+          background-position: 100% 100%;
+        }
+
+        .text-blue{
+          color: cyan;
+
+        }
     </style>
 	   <script type="text/javascript">
 	      var host = '<%= host %>';
@@ -63,19 +106,22 @@
             <h3>Centralized Add User</h3>
           </div> -->
 
-        <div class="col-sm-8 col-sm-offset-2" > 
+        <div class="col-sm-8 col-sm-offset-2 " > 
 
-         <h1>User Management Edit</h1>   
+         <div class="backgroundtulisan col-md-12" style="width:750px;height:114.1px;margin-right:00px;margin-top:10px;padding-left=120px;padding-bottom:10px;">
+          <h1>User Management Edit</h1> 
+          <br>
+         </div>  
          <br></br>  
           <div class="modal-body">
             <div class="container-fluid">
               <div class="form-group">
                 <label class="control-label">Name-Surname:</label>
-                <input type="text" class="form-control" id="central-edit-name-surname">
+                <input type="text" class="form-control myBox" id="central-edit-name-surname">
               </div>
               <div class="form-group">
                 <label class="control-label">UserName:</label>
-                <input type="text" class="form-control" id="central-edit-username" readonly>
+                <input type="text" class="form-control myBox" id="central-edit-username" readonly>
               </div>
 
 <!--               <div class="form-group">
@@ -101,7 +147,7 @@
                   <input type="text" class="form-control col-md-6" id="central-user-staffid">
                 </div> -->
                 <div class="col-md-6">
-                  <select class="form-control" id="central-edit-enable">
+                  <select class="form-control myBox" id="central-edit-enable">
                     <option value="allow">allow</option>
                     <option value="lock">lock</option>
                     <option value="disable">disable</option>
@@ -109,7 +155,7 @@
                 </div>
 
                 <div class="col-md-6">
-                  <select class="form-control" id="central-edit-role">
+                  <select class="form-control myBox" id="central-edit-role">
                     <option value="user">user</option>
                     <option value="admin">admin</option>
                   </select>
@@ -132,10 +178,10 @@
               </div>
               <div class="row">
                 <div class="col-md-6">
-                  <input type="text" class="form-control col-md-6" id="central-edit-startdate">
+                  <input type="text" class="form-control col-md-6 myBox" id="central-edit-startdate">
                 </div>
                 <div class="col-md-6">
-                  <input type="text" class="form-control col-md-6" id="central-edit-expiredate">
+                  <input type="text" class="form-control col-md-6 myBox" id="central-edit-expiredate">
                 </div>
               </div>
               
@@ -202,7 +248,7 @@
                 </div> -->
                 <div class="col-md-6">
                   <input type="hidden" class="form-control col-md-6" id="central-edit-branchfilter">
-                  <select class="form-control" id="central-edit-passpolicy">
+                  <select class="form-control myBox" id="central-edit-passpolicy">
                     <option value="1">true</option>
                     <option value="0">false</option>
                   </select>
@@ -215,13 +261,13 @@
               <span class="text-danger" id="central-edit-alert"></span>
             </div>
           </div>
-          <br>
+          
 <!--           <br>
           <br> -->
-          <div class="modal-footer">
+          <div class="backgroundtulisan" style="width:750px;background-position:absolute;padding-bottom:10px;">
             <br>
-            <button type="button" class="btn btn-default" id="btn-cancel">Cancel</button>
-            <button type="button" class="btn btn-primary" id="btn-edit">Save</button>
+            <button type="button" class="custom-btn btn-2" id="btn-cancel" style="margin-right:100px;margin-left:190px">Cancel</button>
+            <button type="button" class="custom-btn btn-2" id="btn-edit">Save</button>
           </div>
        </div>   
 <!--         </div>

@@ -9,6 +9,7 @@
     <link rel="Shortcut Icon" href="/images/content/Icon.ico" />
     <link rel="stylesheet" href="/stylesheets/theme.css" />
     <link rel="stylesheet" href="/stylesheets/menustyles.css" />
+    <link rel="stylesheet" href="/stylesheets/TitikCss.css" />
     <link href="/stylesheets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="/javascripts/lib/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="/javascripts/lib/bootstrap.min.js"></script>
@@ -17,7 +18,135 @@
     <style type="text/css">
         .toolbar {
         float: right;
-    }
+        }
+        
+        body {
+          background-color: #1a1a1a;
+          color: cyan;
+        }
+
+        .backgroundtulisan{
+              background-color: #333333;
+              width: 1250px;
+              height: 10px
+              margin-right: 0px;
+              font-size: 12px;
+        }
+
+
+        .tree {
+          margin: auto;
+          padding: 50px;
+          background: #1a1a1a;
+        }
+
+        input[type="checkbox"] { display: none; }
+
+        input[type="checkbox"] + label {
+          display: block;
+          position: relative;
+          padding-left: 35px;
+          margin-bottom: 20px;
+          font: 14px/20px 'Open Sans', Arial, sans-serif;
+          color: white;
+          cursor: pointer;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+        }
+
+        input[type="checkbox"] + label:last-child { margin-bottom: 0; }
+
+        input[type="checkbox"] + label:before {
+          content: '';
+          display: block;
+          width: 20px;
+          height: 20px;
+          border: 1px solid cyan;
+          position: absolute;
+          left: 0;
+          top: 0;
+          opacity: .6;
+          -webkit-transition: all .12s, border-color .08s;
+          transition: all .12s, border-color .08s;
+        }
+
+        input[type="checkbox"]:checked + label:before {
+          width: 10px;
+          top: -5px;
+          left: 5px;
+          border-radius: 0;
+          opacity: 1;
+          border-top-color: transparent;
+          border-left-color: transparent;
+          -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+        }
+
+        .custom-btn {
+          padding: 10px;
+          font-family: 'Roboto', sans-serif;
+          width: 120px;
+          font-weight: 20;
+          font-size: 20px;
+          color: white;
+          margin-right: 150px;
+          background: transparent;
+          outline: none !important;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          position: relative;
+          display: inline-block;
+        }
+
+        .btn-2 {
+          border: none;
+          border-bottom: 2px solid cyan;
+          border-left: 2px solid cyan;
+        }
+        .btn-2:before, .btn-2:after {
+          position: absolute;
+          content: "";
+          right: 0;
+          top: 0;
+          background: cyan;
+          transition: all 0.3s ease;
+        }
+        .btn-2:before {
+          height: 0%;
+          width: 2px;
+        }
+        .btn-2:after {
+          width: 0%;
+          height: 2px;
+        }
+        .btn-2:hover:before {height: 100%;}
+        .btn-2:hover:after {width: 100%;}
+
+        .myBox{
+          font-size: 1em;
+          border: 2.5px solid #1B8EB9;
+          padding: 6px;
+          color: cyan;
+          font-weight: 300;
+          box-sizing: border-box;
+          text-indent: 6px;
+          -webkit-box-shadow: inset 1px 0px 0px -1px #404040;
+          box-shadow: inset 1px 0px 0px -1px #404040;
+          transition: box-shadow 0.2s, border 0.2s, color 0.2s, background 0.2s;
+          width: 250px;
+           background: linear-gradient(
+             #1a1a1a, #1a1a1a 50%, #333 50%, #333
+          );
+          background-size: 100% 202%;
+        }
+
+        .myBox:focus{
+          color:white;
+          background-position: 100% 100%;
+        }
+
+
     </style>
   </head>
   <body>
@@ -26,7 +155,7 @@
     <div class='row space-top' style="padding-top:50px">
       <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xs-offset-0 col-sm-offset-0 col-md-offset-2 col-lg-offset-2 toppad">
         <div class="panel panel-info">
-                <div class="panel-heading">
+                <div class="panel-heading backgroundtulisan">
                 <h3 class="panel-title">ข้อมูลสาขา</h3>
                 </div>
                 <div class="panel-body">

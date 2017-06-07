@@ -1,0 +1,102 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600);
+
+body{
+	font-family: 'Open Sans', sans-serif;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.buttonContainer{
+	margin-top:100px;
+	text-align:center;
+}
+
+h1{
+	color:rgba(69, 69, 69, 1);
+	line-height:2em;
+}
+
+/* BUTTON CSS
+------------------------------------------- */
+
+input.button{
+  display:inline-block;
+	
+	font:normal normal 300 1.3em 'Open Sans';
+	text-decoration:none;	
+	
+	color:#00cccc;
+	background-color: transparent;
+	border:1px solid #00cccc;
+	border-radius:100px;
+	
+	padding: .3em 1.2em;
+	margin:5px;
+	width: 353px;
+			
+	background-size: 200% 100%;	
+	background-image: linear-gradient(to right, transparent 50%, #00cccc 50%);
+	transition: background-position .3s cubic-bezier(0.22, 0.19, 1, 1) .1s, color .5s ease 0s, background-color .5s ease;
+}
+
+input.button:hover{
+	color:rgba(255, 255, 255, 1);
+	background-color:#00cccc;
+	background-position: -100% 100%;
+}
+
+/*TEXTBOX FLOAT*/
+
+
+input[type="password"] {
+  box-sizing: border-box;
+  width: 100%;
+  height: calc(4em + 1px);
+  margin: 0 0 1em;
+  padding: 1em;
+  border: 1px solid #ccc;
+  background: #fff;
+  resize: none;
+  outline: none;
+}
+
+input[type="password"][required]:focus {
+  border-color: #00bafa;
+}
+input[type="password"][required]:focus + label[placeholder]:before {
+  color: #00bafa;
+}
+input[type="password"][required]:focus + label[placeholder]:before,
+input[type="password"][required]:valid + label[placeholder]:before {
+  transition-duration: .2s;
+  transform: translate(0, -1.5em) scale(0.9, 0.9);
+}
+
+input[type="password"][required]:invalid + label[placeholder][alt]:before {
+  content: attr(alt);
+}
+
+input[type="password"][required] + label[placeholder] {
+  display: block;
+  pointer-events: none;
+  line-height: 1em;
+  margin-top: calc(-3em - 2px);
+  margin-left: calc(-0.5em - 2px);
+  margin-bottom: calc((3em - 1em) + 2px);
+}
+
+input[type="password"][required] + label[placeholder]:before {
+  content: attr(placeholder);
+  display: inline-block;
+  margin: 0 calc(1em + 2px);
+  padding: 0 2px;
+  color: #898989;
+  white-space: nowrap;
+  transition: 0.3s ease-in-out;
+  background-image: linear-gradient(to bottom, #fff, #fff);
+  background-size: 100% 5px;
+  background-repeat: no-repeat;
+  background-position: center;
+}

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/stylesheets/bootstrap.min.css" />
     <link rel="Shortcut Icon" href="/images/content/Icon.ico" />
     <link rel="stylesheet" href="/stylesheets/theme.css" />
+    <link rel="stylesheet" href="/stylesheets/TitikCss.css" />
     <link rel="stylesheet" href="/stylesheets/menustyles.css" />
     <link href="/stylesheets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="/javascripts/lib/jquery-1.11.3.min.js"></script>
@@ -24,20 +25,21 @@
   </head>
   <body>
   	<% include menu.ejs %>
-      <div class='container'>
-        <div class='row' style="padding-top:40px">
-          <div class="col-md-12">
-            <h3>ข้อมูลสาขา</h3>
+      <div class='container' style="padding-top:100px; width:1250px; height:114.1px">
+        <div class='row backgroundtulisan' style="padding-top:10px;padding-bottom:30px">
+          <div class="col-md-12 backgroundTulisan">
+            <h3>ข้อมูลสาขา - Information Branch</h3>
           </div>
         </div>
-        <div class='row' style="padding-top:25px">
+
+        <div class='row' style="padding-top:25px; color:black">
           <div class="col-md-12">
             <div class="table-responsive">
             <table class='table table-striped table-hover' id='table_id'>
               <thead>
               <tr class="bg-info">
-                <th class="text-center">รหัสสาขา</th>
-                <th class="text-center">ชื่อสาขา</th>
+                <th class="text-center">รหัสสาขา - Branch Code</th>
+                <th class="text-center">ชื่อสาขา - Branch Name</th>
                 <th class="text-center" style='width:80px'>Action</th>
               </tr>
               </thead>
@@ -53,22 +55,22 @@
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <h4>ข้อมูลสาขา</h4>
+            <h4>ข้อมูลสาขา - Information Branch</h4>
           </div>
           <div class="modal-body">
             <div class="form-group row">
-              <label for="vbranchID" class="col-sm-2 col-form-label text-right">รหัสสาขา</label>
+              <label for="vbranchID" class="col-sm-2 col-form-label text-right">รหัสสาขา - Branch Code</label>
               <div class="col-sm-4">
                 <span class="form-control" id="vbranchID"></span>
               </div>
-              <label for="vbranchName" class="col-sm-2 col-form-label text-right">ชื่อสาขา</label>
+              <label for="vbranchName" class="col-sm-2 col-form-label text-right">ชื่อสาขา - Branch Name</label>
               <div class="col-sm-4">
                 <span class="form-control" id="vbranchName"></span>
               </div>
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">ปิด - hush</button>
           </div>
         </div>
       </div>
@@ -78,7 +80,7 @@
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <h4>แก้ไขสาขา</h4>
+            <h4>แก้ไขสาขา - fix branch</h4>
           </div>
           <div class="modal-body">
             <div class="form-group row">
