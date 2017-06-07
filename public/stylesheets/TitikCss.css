@@ -1,19 +1,15 @@
-      body{
-        background-color: #1a1a1a;
-      }
-
       body {
           background-color: #1a1a1a;
           color: cyan;
         }
 
-        .backgroundtulisan{
+      .backgroundtulisan{
             background-color: #333333;
             width: 1250px;
             height: 10px
             margin-right: 0px;
             font-size: 12px;
-        }
+      }
 
 
       .tree {
@@ -126,5 +122,9 @@
       .myBox:focus{
         color:white;
         background-position: 100% 100%;
+      }
+
+      tr:hover{
+        background-color: #595959;
       }
 
